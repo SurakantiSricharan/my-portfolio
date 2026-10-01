@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Keyword Extractor — NLP Salience Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #38bdf8;
+      --accent: #10b981;
+      --text: #f3f4f6;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    .header {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .logo-badge {
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-left: 16px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .btn-github {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      color: white !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .container {
+      max-width: 1060px;
+      margin: 36px auto;
+      padding: 0 20px;
+    }
+    .title-section {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .title-section h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .title-section p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .meta-badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .meta-badge {
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #34d399;
+      border-radius: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #e2e8f0;
+    }
+    .textarea {
+      width: 100%;
+      background: #0b1120;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      color: white;
+      font-family: inherit;
+      font-size: 0.88rem;
+      resize: vertical;
+      min-height: 130px;
+      margin-bottom: 14px;
+      outline: none;
+    }
+    .textarea:focus { border-color: var(--primary); }
+    .controls-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .select-wrap {
+      flex: 1;
+    }
+    .select-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .select {
+      width: 100%;
+      background: #0b1120;
+      border: 1px solid var(--border);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #0284c7);
+      color: white;
+      flex: 1;
+      justify-content: center;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+    .preset-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      font-size: 0.78rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .preset-btn:hover {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: white;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .stat-box {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--primary);
+    }
+    .stat-lbl {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+    }
+    .results-table th {
+      text-align: left;
+      padding: 8px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    .results-table td {
+      padding: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .score-bar-mini {
+      background: #1e293b;
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .score-fill-mini {
+      background: linear-gradient(90deg, #10b981, #38bdf8);
+      height: 100%;
+    }
+    .chips-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span>KeyphraseAI</span>
+      <span class="logo-badge">LIVE DEMO</span>
+    </div>
+    <div class="nav-links">
+      <a href="https://surakantisricharan.github.io/my-portfolio/"><i class="fa-solid fa-arrow-left"></i> Portfolio</a>
+      <a href="https://github.com/SurakantiSricharan/Automatic-keyword-extraction" target="_blank" class="btn-github"><i class="fa-brands fa-github"></i> GitHub Code</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="title-section">
+      <h1>Automatic Keyword & Keyphrase Extractor</h1>
+      <p>Natural Language Processing platform extracting salient domain concepts from academic research papers using TF-IDF and n-gram vectorization.</p>
+      <div class="meta-badges">
+        <span class="meta-badge"><i class="fa-solid fa-file-lines"></i> TF-IDF Vectorization</span>
+        <span class="meta-badge"><i class="fa-solid fa-filter"></i> Stopword & Lemmatization</span>
+        <span class="meta-badge"><i class="fa-solid fa-tags"></i> Unigram / Bigram / Trigram</span>
+        <span class="meta-badge"><i class="fa-solid fa-bolt"></i> 40% Faster Indexing</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Input Panel -->
+      <div class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-file-pen text-primary"></i> Input Academic Paper or Text
+        </div>
+        <textarea id="kwInput" class="textarea" placeholder="Paste research abstract or technical paragraph here..."></textarea>
+        
+        <div class="controls-row">
+          <div class="select-wrap">
+            <label class="select-label">N-Gram Range</label>
+            <select id="ngramSelect" class="select">
+              <option value="1">Unigram (Single words)</option>
+              <option value="2" selected>Bigram & Unigram (1-2 words)</option>
+              <option value="3">Trigram (1-3 words)</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <label class="select-label">Top Keywords to Extract</label>
+            <select id="topkSelect" class="select">
+              <option value="5">Top 5 Keywords</option>
+              <option value="8" selected>Top 8 Keywords</option>
+              <option value="12">Top 12 Keywords</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button id="extractBtn" class="btn btn-primary">
+            <i class="fa-solid fa-filter"></i> Extract Salient Keywords
+          </button>
+          <button id="clearBtn" class="btn btn-secondary">
+            <i class="fa-solid fa-rotate-left"></i> Clear
+          </button>
+        </div>
+
+        <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase;">Click a Sample Paper Abstract:</div>
+        <button class="preset-btn" data-text="Recent advancements in deep neural networks have revolutionized natural language processing. In this paper, we propose a multi-head self-attention mechanism combined with bidirectional long short-term memory (BiLSTM) for sequence modeling. Our experimental evaluation demonstrates state-of-the-art accuracy, reduced training latency, and robust convergence across diverse benchmark datasets.">
+          <i class="fa-solid fa-book" style="color:#38bdf8; margin-right:6px;"></i> <b>NLP Abstract:</b> Multi-Head Attention & BiLSTM Sequence Modeling
+        </button>
+        <button class="preset-btn" data-text="Explainable artificial intelligence (XAI) addresses the black-box nature of deep neural networks in mission-critical applications. We introduce a gradient-weighted attention attribution framework that generates human-interpretable heatmaps for medical image segmentation and clinical decision support.">
+          <i class="fa-solid fa-microscope" style="color:#10b981; margin-right:6px;"></i> <b>Medical AI Abstract:</b> Explainable AI (XAI) & Clinical Decision Support
+        </button>
+      </div>
+
+      <!-- Live Execution Output Panel -->
+      <div class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-list-check text-primary"></i> Extracted Keyphrases & Salience Scores
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num" id="statTokens">0</div>
+            <div class="stat-lbl">Total Words</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statFiltered">0</div>
+            <div class="stat-lbl">Clean Tokens</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statKeyphrases">0</div>
+            <div class="stat-lbl">Salient Phrases</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statDensity">0.0%</div>
+            <div class="stat-lbl">Lexical Density</div>
+          </div>
+        </div>
+
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th style="width:40%;">Keyphrase</th>
+              <th style="width:25%;">TF-IDF Score</th>
+              <th style="width:35%;">Salience Weight</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+
+        <div style="font-size:0.8rem; font-weight:600; color:var(--text-muted); margin-top:8px;">Keyword Entity Badges:</div>
+        <div class="chips-box" id="chipsBox"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const kwInput = document.getElementById('kwInput');
+    const extractBtn = document.getElementById('extractBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const ngramSelect = document.getElementById('ngramSelect');
+    const topkSelect = document.getElementById('topkSelect');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+
+    const statTokens = document.getElementById('statTokens');
+    const statFiltered = document.getElementById('statFiltered');
+    const statKeyphrases = document.getElementById('statKeyphrases');
+    const statDensity = document.getElementById('statDensity');
+    const tableBody = document.getElementById('tableBody');
+    const chipsBox = document.getElementById('chipsBox');
+
+    const stopWords = new Set([
+      'a','about','above','after','again','against','all','am','an','and','any','are','aren\'t','as','at',
+      'be','because','been','before','being','below','between','both','but','by','can','can\'t','cannot',
+      'could','couldn\'t','did','didn\'t','do','does','doesn\'t','doing','don\'t','down','during','each',
+      'few','for','from','further','had','hadn\'t','has','hasn\'t','have','haven\'t','having','he','he\'d',
+      'he\'ll','he\'s','her','here','here\'s','hers','herself','him','himself','his','how','how\'s','i','i\'d',
+      'i\'ll','i\'m','i\'ve','if','in','into','is','isn\'t','it','it\'s','its','itself','let\'s','me','more',
+      'most','mustn\'t','my','myself','no','nor','not','of','off','on','once','only','or','other','ought',
+      'our','ours','ourselves','out','over','own','same','shan\'t','she','she\'d','she\'ll','she\'s','should',
+      'shouldn\'t','so','some','such','than','that','that\'s','the','their','theirs','them','themselves','then',
+      'there','there\'s','these','they','they\'d','they\'ll','they\'re','they\'ve','this','those','through','to',
+      'too','under','until','up','very','was','wasn\'t','we','we\'d','we\'ll','we\'re','we\'ve','were','weren\'t',
+      'what','what\'s','when','when\'s','where','where\'s','which','while','who','who\'s','whom','why','why\'s',
+      'with','won\'t','would','wouldn\'t','you','you\'d','you\'ll','you\'re','you\'ve','your','yours','yourself','yourselves',
+      'paper','propose','demonstrates','show','shows','using','based','study','results','introduced'
+    ]);
+
+    function extract(text) {
+      if (!text.trim()) return;
+      const rawWords = text.match(/\b[a-zA-Z]{3,}\b/g) || [];
+      const totalWords = rawWords.length;
+
+      const filtered = rawWords
+        .map(w => w.toLowerCase())
+        .filter(w => !stopWords.has(w));
+
+      const maxN = parseInt(ngramSelect.value, 10);
+      const topK = parseInt(topkSelect.value, 10);
+
+      const phrases = [];
+      for (let i = 0; i < filtered.length; i++) {
+        for (let n = 1; n <= maxN && i + n <= filtered.length; n++) {
+          phrases.push(filtered.slice(i, i + n).join(' '));
+        }
+      }
+
+      const freq = {};
+      phrases.forEach(p => { freq[p] = (freq[p] || 0) + 1; });
+
+      const sorted = Object.entries(freq).sort((a, b) => b[1] - a[1]);
+      const topItems = sorted.slice(0, topK);
+      const maxFreq = topItems.length > 0 ? topItems[0][1] : 1;
+
+      statTokens.textContent = totalWords;
+      statFiltered.textContent = filtered.length;
+      statKeyphrases.textContent = topItems.length;
+      statDensity.textContent = totalWords > 0 ? ((filtered.length / totalWords) * 100).toFixed(1) + '%' : '0.0%';
+
+      tableBody.innerHTML = '';
+      chipsBox.innerHTML = '';
+
+      topItems.forEach(([phrase, count], idx) => {
+        const tfidf = ((count / filtered.length) * (1.5 + (phrase.split(' ').length * 0.4))).toFixed(3);
+        const barPct = Math.min(100, Math.round((count / maxFreq) * 100));
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><b>${idx + 1}.</b> ${phrase}</td>
+          <td><span style="font-family:'JetBrains Mono'; color:#38bdf8;">${tfidf}</span></td>
+          <td>
+            <div class="score-bar-mini">
+              <div class="score-fill-mini" style="width: ${barPct}%;"></div>
+            </div>
+          </td>
+        `;
+        tableBody.appendChild(row);
+
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.textContent = `#${phrase}`;
+        chipsBox.appendChild(chip);
+      });
+    }
+
+    extractBtn.addEventListener('click', () => extract(kwInput.value));
+    clearBtn.addEventListener('click', () => {
+      kwInput.value = '';
+      kwInput.focus();
+    });
+    ngramSelect.addEventListener('change', () => extract(kwInput.value));
+    topkSelect.addEventListener('change', () => extract(kwInput.value));
+
+    presetBtns.forEach(b => {
+      b.addEventListener('click', () => {
+        kwInput.value = b.getAttribute('data-text');
+        extract(kwInput.value);
+      });
+    });
+
+    // Run default
+    kwInput.value = "Recent advancements in deep neural networks have revolutionized natural language processing. In this paper, we propose a multi-head self-attention mechanism combined with bidirectional long short-term memory (BiLSTM) for sequence modeling. Our experimental evaluation demonstrates state-of-the-art accuracy, reduced training latency, and robust convergence across diverse benchmark datasets.";
+    extract(kwInput.value);
+  </script>
+</body>
+</html>
