@@ -21,6 +21,11 @@ from docx.oxml.ns import nsdecls
 pdfmetrics.registerFont(TTFont('Calibri', 'C:/Windows/Fonts/calibri.ttf'))
 pdfmetrics.registerFont(TTFont('Calibri-Bold', 'C:/Windows/Fonts/calibrib.ttf'))
 pdfmetrics.registerFont(TTFont('Calibri-Italic', 'C:/Windows/Fonts/calibrii.ttf'))
+if os.path.exists('C:/Windows/Fonts/calibriz.ttf'):
+    pdfmetrics.registerFont(TTFont('Calibri-BoldItalic', 'C:/Windows/Fonts/calibriz.ttf'))
+    pdfmetrics.registerFontFamily('Calibri', normal='Calibri', bold='Calibri-Bold', italic='Calibri-Italic', boldItalic='Calibri-BoldItalic')
+else:
+    pdfmetrics.registerFontFamily('Calibri', normal='Calibri', bold='Calibri-Bold', italic='Calibri-Italic')
 
 def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     # Target 1-page Letter format: 8.5 x 11 inches = 612 x 792 points
@@ -180,19 +185,9 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
 
     edu_data = [
         [
-            Paragraph("<b>Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)</b><br/>"
-                      "Malla Reddy University &nbsp;|&nbsp; Hyderabad, Telangana", summary_style),
-            Paragraph("<b>2027</b><br/>CGPA: 8.06 / 10 (till 3-2)", item_subtitle_right)
-        ],
-        [
-            Paragraph("<b>Intermediate (MPC - Mathematics, Physics, Chemistry)</b><br/>"
-                      "Sri Chaitanya Junior College &nbsp;|&nbsp; Hyderabad, Telangana", summary_style),
-            Paragraph("<b>2023</b><br/>Score: 91.9%", item_subtitle_right)
-        ],
-        [
-            Paragraph("<b>Secondary School Certificate (SSC - 10th Class)</b><br/>"
-                      "Chaitanya School &nbsp;|&nbsp; Jagtial, Telangana", summary_style),
-            Paragraph("<b>2021</b><br/>GPA: 9.8 / 10", item_subtitle_right)
+            Paragraph('<font color="#000000"><b>Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)</b></font><br/>'
+                      'Malla Reddy University &nbsp;|&nbsp; Hyderabad, Telangana', summary_style),
+            Paragraph('<font color="#000000"><b>2027</b></font><br/>CGPA: 8.06 / 10 (till 3-2)', item_subtitle_right)
         ]
     ]
     t_edu = Table(edu_data, colWidths=[390, 158])
@@ -360,10 +355,10 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     # 6. Technical Skills (SWAPPED DOWN)
     add_section_header("Technical Skills")
     skills = [
-        "<b>Languages & Core:</b> Python, Java, C/C++, SQL, Git, GitHub, RESTful APIs",
-        "<b>Machine Learning & DL:</b> PyTorch, TensorFlow, Keras, Scikit-Learn, BiLSTM, 1D-CNN, Ensembles, Predictive Analytics",
-        "<b>NLP & Text Forensics:</b> NLTK, TF-IDF, Tokenization, Lemmatization, Sentiment Analysis, Text Mining, Keyword Extraction",
-        "<b>Explainable AI & Tools:</b> XAI (Token Attention, Interpretability), FastAPI, Flask, Pandas, NumPy, Data Preprocessing"
+        '<font color="#000000"><b>Languages & Core:</b></font> Python, Java, C/C++, SQL, Git, GitHub, RESTful APIs',
+        '<font color="#000000"><b>Machine Learning & DL:</b></font> PyTorch, TensorFlow, Keras, Scikit-Learn, BiLSTM, 1D-CNN, Ensembles, Predictive Analytics',
+        '<font color="#000000"><b>NLP & Text Forensics:</b></font> NLTK, TF-IDF, Tokenization, Lemmatization, Sentiment Analysis, Text Mining, Keyword Extraction',
+        '<font color="#000000"><b>Explainable AI & Tools:</b></font> XAI (Token Attention, Interpretability), FastAPI, Flask, Pandas, NumPy, Data Preprocessing'
     ]
     for s in skills:
         story.append(Paragraph(s, skill_line_style))
@@ -471,9 +466,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     add_docx_heading("Education")
     
     edu_list = [
-        ("Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)", "Malla Reddy University  |  Hyderabad, Telangana", "2027", "CGPA: 8.06 / 10 (till 3-2)"),
-        ("Intermediate (MPC - Mathematics, Physics, Chemistry)", "Sri Chaitanya Junior College  |  Hyderabad, Telangana", "2023", "Score: 91.9%"),
-        ("Secondary School Certificate (SSC - 10th Class)", "Chaitanya School  |  Jagtial, Telangana", "2021", "GPA: 9.8 / 10")
+        ("Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)", "Malla Reddy University  |  Hyderabad, Telangana", "2027", "CGPA: 8.06 / 10 (till 3-2)")
     ]
     for deg, inst, yr, score in edu_list:
         t_e = doc.add_table(rows=1, cols=2)
@@ -484,7 +477,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         c1.paragraph_format.space_before = Pt(1)
         c1.paragraph_format.space_after = Pt(1)
         r_d = c1.add_run(deg + "\n")
-        set_run_font(r_d, "Calibri", 8.5, bold=True, color_rgb=(17, 24, 39))
+        set_run_font(r_d, "Calibri", 8.5, bold=True, color_rgb=(0, 0, 0))
         r_i = c1.add_run(inst)
         set_run_font(r_i, "Calibri", 8.5, color_rgb=(55, 65, 81))
 
