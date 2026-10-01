@@ -252,7 +252,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj1_title = (
         '<b>VeritasAI: Fake News Detection Platform</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/Fake-News-Detection" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/#demo-fakenews" color="#0a66c2"><u>Live Demo</u></a>]'
+        '[<a href="https://surakantisricharan.github.io/Fake-News-Detection/" color="#0a66c2"><u>Live Demo</u></a>]'
     )
     proj1_row = [
         [
@@ -283,7 +283,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj2_title = (
         '<b>HybridSense: 4-Class Sentiment Analysis (XAI)</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/HybridSense-Sentiment-Analysis" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/#demo-hybridsense" color="#0a66c2"><u>Live Demo</u></a>]'
+        '[<a href="https://surakantisricharan.github.io/HybridSense-Sentiment-Analysis/" color="#0a66c2"><u>Live Demo</u></a>]'
     )
     proj2_row = [
         [
@@ -313,7 +313,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj3_title = (
         '<b>Automatic Keyword Extraction using NLP</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/Automatic-keyword-extraction" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/#demo-keywords" color="#0a66c2"><u>Live Demo</u></a>]'
+        '[<a href="https://surakantisricharan.github.io/Automatic-keyword-extraction/Kewords/templates/" color="#0a66c2"><u>Live Demo</u></a>]'
     )
     proj3_row = [
         [
@@ -555,7 +555,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         (
             "VeritasAI: Fake News Detection Platform",
             "https://github.com/SurakantiSricharan/Fake-News-Detection",
-            "https://surakantisricharan.github.io/my-portfolio/#demo-fakenews",
+            "https://surakantisricharan.github.io/Fake-News-Detection/",
             "Python, BiLSTM, 1D-CNN, FastAPI, XAI",
             [
                 "Architected a production-grade Fake News Intelligence Platform leveraging BiLSTM + 1D-CNN dual ensembles, classifying deceptive content at 96.2% accuracy.",
@@ -566,7 +566,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         (
             "HybridSense: 4-Class Sentiment Analysis (XAI)",
             "https://github.com/SurakantiSricharan/HybridSense-Sentiment-Analysis",
-            "https://surakantisricharan.github.io/my-portfolio/#demo-hybridsense",
+            "https://surakantisricharan.github.io/HybridSense-Sentiment-Analysis/",
             "Python, TensorFlow, Deep Learning, NLP",
             [
                 "Developed an end-to-end Deep Learning & NLP platform expanding standard 3-class sentiment analysis into a 4-class classification paradigm (Positive, Negative, Neutral, Ambivalent) to resolve clause-level polarity conflicts.",
@@ -576,7 +576,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         (
             "Automatic Keyword Extraction using NLP",
             "https://github.com/SurakantiSricharan/Automatic-keyword-extraction",
-            "https://surakantisricharan.github.io/my-portfolio/#demo-keywords",
+            "https://surakantisricharan.github.io/Automatic-keyword-extraction/Kewords/templates/",
             "Python, Scikit-Learn, NLTK, TF-IDF",
             [
                 "Designed an automated machine learning-driven keyword extraction platform using Python, NLTK, and Scikit-Learn to parse and analyze unstructured academic research papers.",
