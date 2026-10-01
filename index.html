@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sricharan Surakanti | AI/ML Engineer & Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Sricharan Surakanti - AI/ML Engineer and Developer specializing in Deep Learning, NLP, Sentiment Analysis, and Intelligent Web Platforms.">
+  <meta name="keywords" content="Sricharan Surakanti, Portfolio, AI Engineer, Machine Learning, Deep Learning, NLP, HybridSense, Python, TensorFlow, PyTorch">
+  <meta name="author" content="Sricharan Surakanti">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Sricharan Surakanti | AI/ML Engineer Portfolio">
+  <meta property="og:description" content="Explore cutting-edge Deep Learning architectures, NLP pipelines, and interactive full-stack AI applications by Sricharan Surakanti.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/SurakantiSricharan">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/193514180?v=4">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark text-light antialiased">
+  
+  <!-- Ambient Spotlight Glow Effect Following Cursor -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Background Canvas for Interactive Particles -->
+  <canvas id="heroCanvas" class="fixed-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper" id="navbar">
+    <nav class="container nav-content">
+      <a href="#hero" class="brand-logo" aria-label="Sricharan Surakanti Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">Sricharan</span>
+        <span class="logo-accent">Surakanti</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#demo" class="nav-link">Live AI Lab</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="https://github.com/SurakantiSricharan" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub Profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sricharan-surakanti-235809393/" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="LinkedIn Profile">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Hire Me</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-links">
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#skills" class="mobile-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-link">Projects</a></li>
+        <li><a href="#demo" class="mobile-link">Live AI Lab</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+      <div class="mobile-socials">
+        <a href="https://github.com/SurakantiSricharan" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/sricharan-surakanti-235809393/" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        
+        <div class="hero-text-content">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span>
+            <span class="badge-text">Available for AI/ML Roles & Collaborations</span>
+          </div>
+
+          <h1 class="hero-title">
+            Engineering <span class="gradient-text">Intelligent AI</span> &amp; Modern Scalable Systems.
+          </h1>
+
+          <p class="hero-description">
+            Hello, I'm <strong class="text-white">Sricharan Surakanti</strong> — an AI &amp; Software Developer specializing in 
+            <span class="text-accent">Deep Learning architectures</span>, 
+            <span class="text-accent-secondary">Natural Language Processing (NLP)</span>, 
+            and building production-ready, interactive web platforms.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary btn-lg">
+              <span>Explore Projects</span>
+              <i class="fa-solid fa-code"></i>
+            </a>
+            <a href="#demo" class="btn btn-outline btn-lg">
+              <i class="fa-solid fa-brain"></i>
+              <span>Test Live AI Demo</span>
+            </a>
+            <a href="https://github.com/SurakantiSricharan" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-lg" aria-label="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sricharan-surakanti-235809393/" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-lg" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Banner -->
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-number" data-target="4">0</span>
+              <span class="stat-suffix">+</span>
+              <span class="stat-label">AI &amp; Web Projects</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="45">0</span>
+              <span class="stat-suffix">K+</span>
+              <span class="stat-label">Data Points Modeled</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="5">0</span>
+              <span class="stat-suffix">+</span>
+              <span class="stat-label">Deep Learning Models</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual / Tech Identity Card -->
+        <div class="hero-visual">
+          <div class="profile-card-wrapper">
+            <div class="profile-card glass-panel">
+              <div class="card-header-bar">
+                <div class="window-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="card-title-tab">sricharan_profile.py</div>
+                <div class="status-indicator">
+                  <span class="status-led"></span> active
+                </div>
+              </div>
+
+              <div class="profile-avatar-row">
+                <div class="avatar-ring">
+                  <img src="https://avatars.githubusercontent.com/u/193514180?v=4" alt="Sricharan Surakanti Profile Picture" class="avatar-img" onerror="this.src='https://ui-avatars.com/api/?name=Sricharan+Surakanti&background=1e1b4b&color=38bdf8&size=200'">
+                </div>
+                <div class="avatar-meta">
+                  <h3 class="meta-name">Sricharan Surakanti</h3>
+                  <p class="meta-role">AI / ML Engineer &amp; Full-Stack Builder</p>
+                  <div class="meta-tags">
+                    <span class="tag"><i class="fa-brands fa-python"></i> Python</span>
+                    <span class="tag"><i class="fa-solid fa-microchip"></i> Deep Learning</span>
+                    <span class="tag"><i class="fa-solid fa-cloud"></i> NLP</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terminal Code Snippet -->
+              <div class="code-terminal">
+                <div class="code-line"><span class="c-purple">from</span> neural_core <span class="c-purple">import</span> HybridSense, Transformer</div>
+                <div class="code-line"><span class="c-purple">import</span> torch, tensorflow <span class="c-purple">as</span> tf</div>
+                <div class="code-line">&nbsp;</div>
+                <div class="code-line"><span class="c-comment"># Flagship 4-Class Ambivalence Model</span></div>
+                <div class="code-line">model = HybridSense(</div>
+                <div class="code-line">&nbsp;&nbsp;backbone=[<span class="c-green">"CNN"</span>, <span class="c-green">"BiLSTM"</span>, <span class="c-green">"Attention"</span>],</div>
+                <div class="code-line">&nbsp;&nbsp;xai_attribution=<span class="c-blue">True</span>,</div>
+                <div class="code-line">&nbsp;&nbsp;status=<span class="c-green">"Production Ready"</span></div>
+                <div class="code-line">)</div>
+              </div>
+
+              <!-- Floating highlight badges -->
+              <div class="floating-badge badge-top-right">
+                <i class="fa-solid fa-bolt text-warning"></i> 4-Class Sentiment NLP
+              </div>
+              <div class="floating-badge badge-bottom-left">
+                <i class="fa-solid fa-shield-halved text-success"></i> Explainable AI (XAI)
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Biography &amp; Focus</span>
+          <h2 class="section-title">Behind the Code</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-narrative glass-panel">
+            <h3 class="about-heading">
+              Building next-generation intelligent tools that solve complex human-language problems.
+            </h3>
+            <p class="about-paragraph">
+              I am an AI/ML developer focused on turning intricate algorithmic research into responsive, 
+              real-world applications. My work spans from architecting novel multi-class sentiment pipelines 
+              capable of detecting subtle linguistic nuance and clause ambivalence, to developing automated 
+              document keyphrase extraction engines and web platforms.
+            </p>
+            <p class="about-paragraph">
+              With a deep passion for <strong>NLP, Deep Learning (CNNs, BiLSTMs, Transformers)</strong>, and 
+              full-stack development, I build systems that don't just produce predictions in a notebook — they provide 
+              explainability, user feedback loops, telemetry, and crisp UI dashboards.
+            </p>
+
+            <div class="about-pillars">
+              <div class="pillar-card">
+                <div class="pillar-icon"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                  <h4>Deep Learning &amp; XAI</h4>
+                  <p>Hybrid architectures, attention mechanisms, and feature attributions.</p>
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-icon"><i class="fa-solid fa-language"></i></div>
+                <div>
+                  <h4>Natural Language Processing</h4>
+                  <p>Clause disentanglement, TF-IDF, tokenization, and contextual embeddings.</p>
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <div>
+                  <h4>Full-Stack Integration</h4>
+                  <p>Translating models into Streamlit, Flask, and high-performance interactive interfaces.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Bio Card & Social Credentials -->
+          <div class="about-side-cards">
+            <div class="glass-panel profile-stats-card">
+              <div class="stats-badge-heading">
+                <i class="fa-solid fa-fingerprint text-accent"></i>
+                <span>Direct Verification</span>
+              </div>
+              <ul class="verification-list">
+                <li>
+                  <span class="ver-label"><i class="fa-brands fa-github"></i> GitHub:</span>
+                  <a href="https://github.com/SurakantiSricharan" target="_blank" rel="noopener noreferrer" class="ver-link">
+                    @SurakantiSricharan <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </li>
+                <li>
+                  <span class="ver-label"><i class="fa-brands fa-linkedin"></i> LinkedIn:</span>
+                  <a href="https://www.linkedin.com/in/sricharan-surakanti-235809393/" target="_blank" rel="noopener noreferrer" class="ver-link">
+                    in/sricharan-surakanti <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </li>
+                <li>
+                  <span class="ver-label"><i class="fa-solid fa-location-dot"></i> Location:</span>
+                  <span class="ver-value">India (Open to Remote &amp; Global Roles)</span>
+                </li>
+                <li>
+                  <span class="ver-label"><i class="fa-solid fa-graduation-cap"></i> Degree:</span>
+                  <span class="ver-value">Computer Science &amp; Engineering</span>
+                </li>
+                <li>
+                  <span class="ver-label"><i class="fa-solid fa-envelope"></i> Inquiries:</span>
+                  <a href="mailto:surakantisricharan8@gmail.com" class="ver-link">
+                    surakantisricharan8@gmail.com
+                  </a>
+                </li>
+              </ul>
+
+              <div class="bio-actions">
+                <a href="#contact" class="btn btn-primary btn-block">
+                  <i class="fa-solid fa-paper-plane"></i> Let's Connect
+                </a>
+              </div>
+            </div>
+
+            <!-- GitHub Highlights Card -->
+            <div class="glass-panel github-live-card">
+              <div class="gh-card-header">
+                <div class="gh-avatar">
+                  <i class="fa-brands fa-github-alt"></i>
+                </div>
+                <div>
+                  <h4>SurakantiSricharan</h4>
+                  <p>GitHub Verified Developer</p>
+                </div>
+              </div>
+              <div class="gh-stats-row">
+                <div class="gh-stat">
+                  <span class="gh-num">5</span>
+                  <span class="gh-lbl">Public Repos</span>
+                </div>
+                <div class="gh-stat">
+                  <span class="gh-num">Python</span>
+                  <span class="gh-lbl">Primary Tech</span>
+                </div>
+                <div class="gh-stat">
+                  <span class="gh-num">AI/ML</span>
+                  <span class="gh-lbl">Specialization</span>
+                </div>
+              </div>
+              <a href="https://github.com/SurakantiSricharan?tab=repositories" target="_blank" rel="noopener noreferrer" class="gh-link-btn">
+                <span>View All Repositories</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section id="skills" class="section-padding bg-darker">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Technical Proficiency</span>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <div class="title-bar"></div>
+          <p class="section-desc">A comprehensive view of the core tools, libraries, and languages I use to construct intelligent software.</p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Category 1: AI & Deep Learning -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-icon icon-ai">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="category-title">Deep Learning &amp; AI</h3>
+            <p class="category-desc">Architecting neural models, loss functions, and explainability layers.</p>
+            <div class="skill-pill-container">
+              <span class="skill-badge"><i class="fa-solid fa-layer-group"></i> CNN (Convolutional Nets)</span>
+              <span class="skill-badge"><i class="fa-solid fa-arrows-split-up-and-left"></i> BiLSTM (Bidirectional)</span>
+              <span class="skill-badge"><i class="fa-solid fa-bolt"></i> Attention Mechanisms</span>
+              <span class="skill-badge"><i class="fa-solid fa-robot"></i> Transformers (DistilBERT)</span>
+              <span class="skill-badge"><i class="fa-solid fa-eye"></i> Explainable AI (XAI)</span>
+              <span class="skill-badge"><i class="fa-solid fa-chart-line"></i> Transfer Learning</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Machine Learning & NLP -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-icon icon-nlp">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <h3 class="category-title">NLP &amp; Machine Learning</h3>
+            <p class="category-desc">Text mining, vectorization, feature extraction, and multi-class classification.</p>
+            <div class="skill-pill-container">
+              <span class="skill-badge"><i class="fa-solid fa-spell-check"></i> TF-IDF Vectorization</span>
+              <span class="skill-badge"><i class="fa-solid fa-tags"></i> Keyword Extraction</span>
+              <span class="skill-badge"><i class="fa-solid fa-filter"></i> Text Preprocessing &amp; Lemmatization</span>
+              <span class="skill-badge"><i class="fa-solid fa-shield-virus"></i> Fake News Detection</span>
+              <span class="skill-badge"><i class="fa-solid fa-chart-pie"></i> Scikit-Learn</span>
+              <span class="skill-badge"><i class="fa-solid fa-book"></i> NLTK</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Frameworks & Libraries -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-icon icon-fw">
+              <i class="fa-solid fa-cubes"></i>
+            </div>
+            <h3 class="category-title">Frameworks &amp; Libraries</h3>
+            <p class="category-desc">Modern industry frameworks powering deep neural models and data pipelines.</p>
+            <div class="skill-pill-container">
+              <span class="skill-badge"><i class="fa-brands fa-python"></i> TensorFlow / Keras</span>
+              <span class="skill-badge"><i class="fa-solid fa-fire"></i> PyTorch</span>
+              <span class="skill-badge"><i class="fa-solid fa-face-smile"></i> Hugging Face Transformers</span>
+              <span class="skill-badge"><i class="fa-solid fa-table"></i> Pandas &amp; NumPy</span>
+              <span class="skill-badge"><i class="fa-solid fa-chart-simple"></i> Matplotlib &amp; Seaborn</span>
+              <span class="skill-badge"><i class="fa-solid fa-database"></i> SQLite</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Web & Application Development -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-icon icon-web">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="category-title">Full-Stack &amp; Web Platforms</h3>
+            <p class="category-desc">Transforming models into responsive dashboards, interactive microservices, and apps.</p>
+            <div class="skill-pill-container">
+              <span class="skill-badge"><i class="fa-solid fa-sliders"></i> Streamlit Platform</span>
+              <span class="skill-badge"><i class="fa-solid fa-flask"></i> Flask REST API</span>
+              <span class="skill-badge"><i class="fa-brands fa-html5"></i> Semantic HTML5</span>
+              <span class="skill-badge"><i class="fa-brands fa-css3-alt"></i> Modern CSS3 &amp; Glassmorphism</span>
+              <span class="skill-badge"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</span>
+              <span class="skill-badge"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub Version Control</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section id="projects" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Real-World Implementations</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="title-bar"></div>
+          <p class="section-desc">Engineered solutions solving nuanced NLP, machine learning, and interactive web challenges.</p>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="deep-learning">Deep Learning</button>
+          <button class="filter-btn" data-filter="nlp">NLP &amp; Machine Learning</button>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="projects-grid">
+          
+          <!-- PROJECT 1: HybridSense (Flagship Project) -->
+          <div class="project-card glass-panel" data-category="deep-learning nlp">
+            <div class="project-banner banner-hybridsense">
+              <div class="badge-flagship">
+                <i class="fa-solid fa-star"></i> Flagship Academic Project
+              </div>
+              <div class="badge-deployment live">
+                <span class="pulse-dot"></span> Live Deployment &amp; Lab
+              </div>
+              <div class="banner-overlay-content">
+                <div class="arch-preview">
+                  <span class="arch-step">Input Text</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span class="arch-step">CNN Layer</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span class="arch-step">BiLSTM</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span class="arch-step highlight">Attention</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-tag tag-primary">4-Class Sentiment Analysis</span>
+                <span class="project-tag tag-secondary">Explainable AI (XAI)</span>
+                <span class="project-tag tag-live"><i class="fa-solid fa-circle-check"></i> Live Ready</span>
+              </div>
+
+              <h3 class="project-title">
+                HybridSense-X: 4-Class Sentiment &amp; Ambivalence Disentanglement
+              </h3>
+
+              <p class="project-summary">
+                A state-of-the-art Deep Learning architecture that extends conventional 3-class sentiment models by explicitly identifying 
+                <strong>concurrent opposing sentiments</strong> (e.g., <em>"Great performance, but terrible battery"</em>). Combines CNN spatial feature extraction, 
+                BiLSTM sequential context, and Attention pooling with clause-level disentanglement.
+              </p>
+
+              <div class="project-highlights">
+                <div class="highlight-item">
+                  <i class="fa-solid fa-check-circle text-success"></i>
+                  <span>5 models trained &amp; benchmarked (CNN, BiLSTM, DistilBERT, Baseline TF-IDF, Hybrid Attention).</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fa-solid fa-check-circle text-success"></i>
+                  <span>Interactive Streamlit dashboard with SQLite telemetry, XAI token attribution, and latency tracking.</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fa-solid fa-check-circle text-success"></i>
+                  <span>Trained on 45,586 multi-class sentiment samples with verified class distributions.</span>
+                </div>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">TensorFlow / Keras</span>
+                <span class="tech-chip">PyTorch</span>
+                <span class="tech-chip">DistilBERT</span>
+                <span class="tech-chip">Streamlit</span>
+                <span class="tech-chip">SQLite</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/SurakantiSricharan/HybridSense-Sentiment-Analysis" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+                <button type="button" class="btn btn-primary btn-sm btn-live-deploy" data-project="hybridsense" title="Directly launch and test live execution in browser">
+                  <i class="fa-solid fa-rocket"></i> Live Deployment
+                </button>
+                <button type="button" class="btn btn-glass btn-sm btn-execution" data-target="exec-hybridsense">
+                  <i class="fa-solid fa-terminal"></i> Run Locally
+                </button>
+              </div>
+
+              <!-- Collapsible Execution Terminal -->
+              <div class="project-execution-drawer" id="exec-hybridsense">
+                <div class="exec-terminal">
+                  <div class="exec-terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot dot-red"></span>
+                      <span class="dot dot-yellow"></span>
+                      <span class="dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">bash &mdash; run_hybridsense.sh</span>
+                    <button type="button" class="exec-copy-btn" title="Copy CLI Commands">
+                      <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                  </div>
+                  <pre class="exec-code"><code><span class="c-comment"># 1. Clone repository</span>
+git clone https://github.com/SurakantiSricharan/HybridSense-Sentiment-Analysis.git
+cd HybridSense-Sentiment-Analysis
+
+<span class="c-comment"># 2. Setup virtual environment &amp; activate</span>
+python -m venv venv
+venv\Scripts\activate <span class="c-comment"># Linux/macOS: source venv/bin/activate</span>
+
+<span class="c-comment"># 3. Install dependencies</span>
+pip install -r requirements.txt
+
+<span class="c-comment"># 4. Launch Streamlit AI Platform</span>
+streamlit run app.py</code></pre>
+                  <div class="exec-meta">
+                    <span class="exec-env"><i class="fa-solid fa-circle-info"></i> Python 3.9+ | PyTorch / TensorFlow | Streamlit</span>
+                    <button type="button" class="exec-live-link btn-live-deploy" data-project="hybridsense"><i class="fa-solid fa-flask"></i> Launch Live in Browser &darr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: Automatic Keyword Extraction -->
+          <div class="project-card glass-panel" data-category="nlp">
+            <div class="project-banner banner-keywords">
+              <div class="badge-deployment live">
+                <span class="pulse-dot"></span> Live Deployment Ready
+              </div>
+              <div class="banner-icon-large">
+                <i class="fa-solid fa-file-lines"></i>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-tag tag-primary">NLP Pipeline</span>
+                <span class="project-tag">Flask Application</span>
+                <span class="project-tag tag-live"><i class="fa-solid fa-circle-check"></i> Live Ready</span>
+              </div>
+
+              <h3 class="project-title">
+                Automatic Keyword &amp; Keyphrase Extraction
+              </h3>
+
+              <p class="project-summary">
+                An automated NLP text analysis engine that parses lengthy academic research papers and documents, extracting the highest-salience n-grams (1-gram and 2-gram keyphrases) using custom-tuned TF-IDF weighting and sparse matrix ranking.
+              </p>
+
+              <div class="project-highlights">
+                <div class="highlight-item">
+                  <i class="fa-solid fa-check-circle text-success"></i>
+                  <span>NLTK tokenization, custom domain stop-word filtering, and WordNet lemmatization pipeline.</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fa-solid fa-check-circle text-success"></i>
+                  <span>Interactive web interface supporting instant file uploads, sorting, and vocabulary search.</span>
+                </div>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">Scikit-Learn</span>
+                <span class="tech-chip">NLTK</span>
+                <span class="tech-chip">Flask</span>
+                <span class="tech-chip">Jupyter</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/SurakantiSricharan/Automatic-keyword-extraction" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+                <button type="button" class="btn btn-primary btn-sm btn-live-deploy" data-project="keywords" title="Directly launch and test live execution in browser">
+                  <i class="fa-solid fa-rocket"></i> Live Deployment
+                </button>
+                <button type="button" class="btn btn-glass btn-sm btn-execution" data-target="exec-keywords">
+                  <i class="fa-solid fa-terminal"></i> Run Locally
+                </button>
+              </div>
+
+              <!-- Collapsible Execution Terminal -->
+              <div class="project-execution-drawer" id="exec-keywords">
+                <div class="exec-terminal">
+                  <div class="exec-terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot dot-red"></span>
+                      <span class="dot dot-yellow"></span>
+                      <span class="dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">bash &mdash; run_keyword_extraction.sh</span>
+                    <button type="button" class="exec-copy-btn" title="Copy CLI Commands">
+                      <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                  </div>
+                  <pre class="exec-code"><code><span class="c-comment"># 1. Clone repository</span>
+git clone https://github.com/SurakantiSricharan/Automatic-keyword-extraction.git
+cd Automatic-keyword-extraction
+
+<span class="c-comment"># 2. Install requirements &amp; download NLTK corpora</span>
+pip install -r requirements.txt
+python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet')"
+
+<span class="c-comment"># 3. Launch Flask web UI</span>
+python app.py
+<span class="c-comment"># Accessible in browser at http://localhost:5000</span></code></pre>
+                  <div class="exec-meta">
+                    <span class="exec-env"><i class="fa-solid fa-circle-info"></i> Requires Python 3.8+ | Scikit-Learn | Flask</span>
+                    <button type="button" class="exec-live-link btn-live-deploy" data-project="keywords"><i class="fa-solid fa-flask"></i> Launch Live in Browser &darr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: Fake News Detection -->
+          <div class="project-card glass-panel" data-category="nlp">
+            <div class="project-banner banner-fakenews">
+              <div class="badge-deployment live">
+                <span class="pulse-dot"></span> Live Model Inference
+              </div>
+              <div class="banner-icon-large">
+                <i class="fa-solid fa-newspaper"></i>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-tag tag-primary">Supervised Machine Learning</span>
+                <span class="project-tag">Text Classification</span>
+                <span class="project-tag tag-live"><i class="fa-solid fa-circle-check"></i> Live Ready</span>
+              </div>
+
+              <h3 class="project-title">
+                Fake News &amp; Misinformation Detection
+              </h3>
+
+              <p class="project-summary">
+                An NLP classification framework designed to combat misinformation and deceptive online articles by processing linguistic signals, sentiment extremity, and vocabulary anomalies to reliably distinguish credible news from fabricated stories.
+              </p>
+
+              <div class="project-highlights">
+                <div class="highlight-item">
+                  <i class="fa-solid fa-check-circle text-success"></i>
+                  <span>Text normalization, regular expression sanitization, and bag-of-words / TF-IDF representations.</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fa-solid fa-check-circle text-success"></i>
+                  <span>Evaluated with cross-validated confusion matrices, precision, recall, and Macro-F1 scores.</span>
+                </div>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">Machine Learning</span>
+                <span class="tech-chip">Scikit-Learn</span>
+                <span class="tech-chip">Pandas</span>
+                <span class="tech-chip">NLP</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/SurakantiSricharan/Fake-News-Detection" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+                <button type="button" class="btn btn-primary btn-sm btn-live-deploy" data-project="fakenews" title="Directly launch and test live execution in browser">
+                  <i class="fa-solid fa-rocket"></i> Live Deployment
+                </button>
+                <button type="button" class="btn btn-glass btn-sm btn-execution" data-target="exec-fakenews">
+                  <i class="fa-solid fa-terminal"></i> Run Locally
+                </button>
+              </div>
+
+              <!-- Collapsible Execution Terminal -->
+              <div class="project-execution-drawer" id="exec-fakenews">
+                <div class="exec-terminal">
+                  <div class="exec-terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot dot-red"></span>
+                      <span class="dot dot-yellow"></span>
+                      <span class="dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">bash &mdash; run_fake_news_detection.sh</span>
+                    <button type="button" class="exec-copy-btn" title="Copy CLI Commands">
+                      <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                  </div>
+                  <pre class="exec-code"><code><span class="c-comment"># 1. Clone repository</span>
+git clone https://github.com/SurakantiSricharan/Fake-News-Detection.git
+cd Fake-News-Detection
+
+<span class="c-comment"># 2. Install dependencies</span>
+pip install -r requirements.txt
+
+<span class="c-comment"># 3. Launch Jupyter Notebook or run inference</span>
+jupyter notebook
+<span class="c-comment"># Open and execute Fake_News_Detection.ipynb or python predict.py</span></code></pre>
+                  <div class="exec-meta">
+                    <span class="exec-env"><i class="fa-solid fa-circle-info"></i> Requires Python 3.8+ | Scikit-Learn | Pandas</span>
+                    <button type="button" class="exec-live-link btn-live-deploy" data-project="fakenews"><i class="fa-solid fa-flask"></i> Launch Live in Browser &darr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE LIVE AI & ML LAB (MULTI-PROJECT DEMO SECTION) -->
+    <section id="demo" class="section-padding bg-darker">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Direct Model Execution &amp; Live Inference</span>
+          <h2 class="section-title">Interactive Live AI &amp; NLP Lab</h2>
+          <div class="title-bar"></div>
+          <p class="section-desc">
+            Directly execute all 3 machine learning models in your browser. Choose any model tab below or click <strong>Live Deployment</strong> on any project card above to test immediately.
+          </p>
+        </div>
+
+        <!-- Lab Navigation Tabs Switcher -->
+        <div class="lab-tabs-bar" role="tablist">
+          <button type="button" class="lab-tab-btn active" data-tab="hybridsense" id="tabBtn-hybridsense" role="tab" aria-selected="true">
+            <i class="fa-solid fa-brain"></i>
+            <div class="tab-label-group">
+              <span class="tab-title">HybridSense-X</span>
+              <span class="tab-sub">Sentiment &amp; Ambivalence</span>
+            </div>
+            <span class="tab-pill">Deep Learning</span>
+          </button>
+          
+          <button type="button" class="lab-tab-btn" data-tab="keywords" id="tabBtn-keywords" role="tab" aria-selected="false">
+            <i class="fa-solid fa-tags"></i>
+            <div class="tab-label-group">
+              <span class="tab-title">Keyword Extractor</span>
+              <span class="tab-sub">Salience &amp; Keyphrases</span>
+            </div>
+            <span class="tab-pill">NLP / TF-IDF</span>
+          </button>
+          
+          <button type="button" class="lab-tab-btn" data-tab="fakenews" id="tabBtn-fakenews" role="tab" aria-selected="false">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div class="tab-label-group">
+              <span class="tab-title">Fake News Detector</span>
+              <span class="tab-sub">Linguistic Verification</span>
+            </div>
+            <span class="tab-pill">ML Classifier</span>
+          </button>
+        </div>
+
+        <!-- TAB 1: HYBRIDSENSE-X -->
+        <div class="lab-tab-panel active" id="tabPanel-hybridsense" role="tabpanel">
+          <div class="ai-demo-wrapper glass-panel">
+            <div class="demo-controls">
+              <div class="demo-input-box">
+                <label for="demoTextInput" class="demo-label">Enter sentence with mixed or subtle polarities:</label>
+                <div class="input-with-button">
+                  <textarea id="demoTextInput" rows="3" class="demo-textarea" placeholder="e.g. The design and display are spectacular, but the battery drain is atrocious!"></textarea>
+                </div>
+                <div class="preset-pills">
+                  <span class="preset-intro">Quick test cases:</span>
+                  <button type="button" class="preset-btn" data-text="The design is excellent but the battery life is terrible.">Dual Clause (Ambivalent)</button>
+                  <button type="button" class="preset-btn" data-text="I absolutely adore this groundbreaking technology!">Pure Positive</button>
+                  <button type="button" class="preset-btn" data-text="The software constantly crashes and freezes completely.">Pure Negative</button>
+                  <button type="button" class="preset-btn" data-text="The package arrived on Thursday via standard courier.">Neutral</button>
+                </div>
+              </div>
+
+              <div class="demo-action-row">
+                <button id="runAnalysisBtn" class="btn btn-primary btn-md">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Run HybridSense Inference
+                </button>
+                <button id="clearDemoBtn" class="btn btn-glass btn-md">
+                  <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Output Display Panel -->
+            <div class="demo-results-panel" id="demoResults">
+              <div class="results-header">
+                <h4>Predicted Classification &amp; Confidence Breakdown</h4>
+                <span class="model-badge">Engine: Hybrid CNN-BiLSTM-Attention Simulator</span>
+              </div>
+
+              <div class="pred-summary-card">
+                <div class="pred-badge-box">
+                  <span class="pred-label-heading">Primary Class</span>
+                  <span class="pred-class-badge" id="predClassBadge">Ambivalent</span>
+                </div>
+                <div class="pred-explanation" id="predExplanation">
+                  Detected contrasting clauses linked by an adversative connective ('but'). Positive clause detected alongside Negative clause.
+                </div>
+              </div>
+
+              <!-- Probability Bars -->
+              <div class="probability-bars">
+                <div class="prob-row">
+                  <div class="prob-label"><span>Ambivalent (Class 3)</span><span id="probAmbVal">88.4%</span></div>
+                  <div class="progress-track"><div class="progress-fill fill-ambivalent" id="barAmb" style="width: 88.4%"></div></div>
+                </div>
+                <div class="prob-row">
+                  <div class="prob-label"><span>Positive (Class 2)</span><span id="probPosVal">7.2%</span></div>
+                  <div class="progress-track"><div class="progress-fill fill-positive" id="barPos" style="width: 7.2%"></div></div>
+                </div>
+                <div class="prob-row">
+                  <div class="prob-label"><span>Negative (Class 0)</span><span id="probNegVal">3.1%</span></div>
+                  <div class="progress-track"><div class="progress-fill fill-negative" id="barNeg" style="width: 3.1%"></div></div>
+                </div>
+                <div class="prob-row">
+                  <div class="prob-label"><span>Neutral (Class 1)</span><span id="probNeuVal">1.3%</span></div>
+                  <div class="progress-track"><div class="progress-fill fill-neutral" id="barNeu" style="width: 1.3%"></div></div>
+                </div>
+              </div>
+
+              <!-- Simulated Token Attribution -->
+              <div class="xai-preview-box">
+                <div class="xai-header">
+                  <i class="fa-solid fa-magnifying-glass-chart text-accent"></i>
+                  <span>Explainable AI (XAI) Token Attention Heatmap:</span>
+                </div>
+                <div class="xai-tokens" id="xaiTokens">
+                  <span class="token token-pos">The</span>
+                  <span class="token token-pos-high">design</span>
+                  <span class="token token-pos-high">is excellent</span>
+                  <span class="token token-split">but</span>
+                  <span class="token token-neg">the battery</span>
+                  <span class="token token-neg-high">life is terrible</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: AUTOMATIC KEYWORD & KEYPHRASE EXTRACTOR -->
+        <div class="lab-tab-panel" id="tabPanel-keywords" role="tabpanel">
+          <div class="ai-demo-wrapper glass-panel">
+            <div class="demo-controls">
+              <div class="demo-input-box">
+                <label for="keywordsInput" class="demo-label">Enter research paper abstract or text to extract salient keyphrases:</label>
+                <div class="input-with-button">
+                  <textarea id="keywordsInput" rows="5" class="demo-textarea" placeholder="Paste scientific paper abstract or text here..."></textarea>
+                </div>
+                <div class="preset-pills">
+                  <span class="preset-intro">Sample Abstracts:</span>
+                  <button type="button" class="preset-keyword-btn" data-text="Recent advancements in deep neural networks have revolutionized natural language processing. In this paper, we propose a multi-head self-attention mechanism combined with bidirectional long short-term memory (BiLSTM) for sequence modeling. Our experimental evaluation demonstrates state-of-the-art accuracy, reduced training latency, and robust convergence across diverse benchmark datasets.">Deep Learning Paper</button>
+                  <button type="button" class="preset-keyword-btn" data-text="Reinforcement learning algorithms and computer vision pipelines are accelerating autonomous vehicle navigation. Real-time sensor fusion between LiDAR point clouds and camera telemetry enables robust obstacle detection, path planning, and collision avoidance under stochastic driving environments.">Autonomous Systems</button>
+                  <button type="button" class="preset-keyword-btn" data-text="Genomic sequence analysis and computational biology leverage convolutional neural networks to predict protein folding structures. High-throughput transcriptomic sequencing data reveals critical biomarker mutations associated with oncogenic signaling pathways and therapeutic drug resistance.">Bioinformatics Paper</button>
+                </div>
+
+                <div class="extractor-options-bar">
+                  <div class="opt-group">
+                    <label for="keywordNgramSelect" class="opt-label"><i class="fa-solid fa-sliders"></i> N-Gram Scope:</label>
+                    <select id="keywordNgramSelect" class="opt-select">
+                      <option value="both" selected>Unigrams &amp; Bigrams (1 &amp; 2-grams)</option>
+                      <option value="unigrams">Unigrams Only (1-word)</option>
+                      <option value="bigrams">Keyphrases Only (2-words)</option>
+                    </select>
+                  </div>
+                  <div class="opt-group">
+                    <label for="keywordTopKSelect" class="opt-label"><i class="fa-solid fa-list-ol"></i> Max Keyphrases:</label>
+                    <select id="keywordTopKSelect" class="opt-select">
+                      <option value="5">Top 5</option>
+                      <option value="8" selected>Top 8</option>
+                      <option value="12">Top 12</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-action-row">
+                <button id="runKeywordsBtn" class="btn btn-primary btn-md">
+                  <i class="fa-solid fa-filter"></i> Extract Salient Keyphrases (TF-IDF)
+                </button>
+                <button id="clearKeywordsBtn" class="btn btn-glass btn-md">
+                  <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Output Display Panel -->
+            <div class="demo-results-panel" id="keywordsResults">
+              <div class="results-header">
+                <h4>Extracted Keyphrases &amp; Salience Ranking</h4>
+                <span class="model-badge">Engine: TF-IDF Sparse Matrix + NLTK Lemmatizer</span>
+              </div>
+
+              <!-- Metrics Row -->
+              <div class="keyword-metrics-grid">
+                <div class="k-metric-card">
+                  <span class="k-metric-num" id="kmTotalTokens">0</span>
+                  <span class="k-metric-lbl">Total Words</span>
+                </div>
+                <div class="k-metric-card">
+                  <span class="k-metric-num" id="kmFilteredTokens">0</span>
+                  <span class="k-metric-lbl">Filtered Stop Words</span>
+                </div>
+                <div class="k-metric-card">
+                  <span class="k-metric-num" id="kmSalientPhrases">0</span>
+                  <span class="k-metric-lbl">Ranked Phrases</span>
+                </div>
+                <div class="k-metric-card">
+                  <span class="k-metric-num" id="kmMatrixDensity">0.0%</span>
+                  <span class="k-metric-lbl">Vocabulary Density</span>
+                </div>
+              </div>
+
+              <!-- Keyphrases Ranked List -->
+              <div class="keyphrases-container">
+                <h5 class="subpanel-title"><i class="fa-solid fa-ranking-star text-accent"></i> Highest Weighted Keyphrases:</h5>
+                <div class="keyphrases-list" id="keyphrasesList">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Salience Token Cloud -->
+              <div class="keyphrases-cloud-box">
+                <h5 class="subpanel-title"><i class="fa-solid fa-cloud text-accent"></i> Keyphrase Salience Cloud:</h5>
+                <div class="keyword-chips" id="keywordChips">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: FAKE NEWS & MISINFORMATION DETECTOR -->
+        <div class="lab-tab-panel" id="tabPanel-fakenews" role="tabpanel">
+          <div class="ai-demo-wrapper glass-panel">
+            <div class="demo-controls">
+              <div class="demo-input-box">
+                <label for="fakenewsInput" class="demo-label">Enter news headline or excerpt to assess authenticity &amp; linguistic signals:</label>
+                <div class="input-with-button">
+                  <textarea id="fakenewsInput" rows="4" class="demo-textarea" placeholder="Paste news story, tweet, or article excerpt to inspect..."></textarea>
+                </div>
+                <div class="preset-pills">
+                  <span class="preset-intro">Preset Stories:</span>
+                  <button type="button" class="preset-fn-btn" data-text="SHOCKING CONSPIRACY: Secret government leaked memo confirms 5G radiation towers are secretly controlling daily global weather and mind waves! Mainstream media is desperately trying to hide this truth from the public!">Sensational Conspiracy (Fake)</button>
+                  <button type="button" class="preset-fn-btn" data-text="Astronomers utilizing data from the James Webb Space Telescope have published confirmed spectroscopic evidence of water vapor in the atmosphere of an exoplanet orbiting a nearby star, according to a peer-reviewed study released in the journal Nature on Wednesday.">Nature / NASA Report (Credible)</button>
+                  <button type="button" class="preset-fn-btn" data-text="MIRACLE DISCOVERY: Big pharma executives in panic as anonymous local doctor reveals ancient root extract that miraculously cures every terminal illness in 48 hours without surgery or prescription drugs!">Miracle Cure Hoax (Fake)</button>
+                  <button type="button" class="preset-fn-btn" data-text="The Federal Reserve maintained benchmark interest rates at 5.25% to 5.50% following its two-day Federal Open Market Committee meeting, noting gradual moderation in labor market expansion and core inflation.">Reuters Wire (Credible)</button>
+                </div>
+              </div>
+
+              <div class="demo-action-row">
+                <button id="runFakeNewsBtn" class="btn btn-primary btn-md">
+                  <i class="fa-solid fa-shield-virus"></i> Run Misinformation Classifier
+                </button>
+                <button id="clearFakeNewsBtn" class="btn btn-glass btn-md">
+                  <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Output Display Panel -->
+            <div class="demo-results-panel" id="fakenewsResults">
+              <div class="results-header">
+                <h4>Authenticity Verdict &amp; Linguistic Signals</h4>
+                <span class="model-badge">Engine: Supervised Linguistic &amp; Lexical Classifier</span>
+              </div>
+
+              <!-- Verdict Banner Card -->
+              <div class="fn-verdict-card" id="fnVerdictCard">
+                <div class="fn-verdict-header">
+                  <div class="fn-verdict-icon" id="fnVerdictIcon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                  </div>
+                  <div>
+                    <span class="fn-verdict-subtitle">Classifier Verdict</span>
+                    <h3 class="fn-verdict-title" id="fnVerdictTitle">High Risk Misinformation</h3>
+                  </div>
+                  <div class="fn-verdict-score" id="fnVerdictScore">94.8%</div>
+                </div>
+                <p class="fn-verdict-desc" id="fnVerdictDesc">
+                  Extravagant sensationalism detected, lack of verified institutional sources, extreme emotional polarity, and clickbait lexical patterns.
+                </p>
+              </div>
+
+              <!-- Confidence Progress Bar -->
+              <div class="fn-confidence-box">
+                <div class="prob-row">
+                  <div class="prob-label"><span id="fnProbLabel">Misinformation Probability</span><span id="fnConfidenceVal">94.8%</span></div>
+                  <div class="progress-track"><div class="progress-fill" id="fnProgressBar" style="width: 94.8%; background: linear-gradient(90deg, #ef4444, #f97316);"></div></div>
+                </div>
+              </div>
+
+              <!-- Diagnostic Signals List -->
+              <div class="fn-signals-box">
+                <h5 class="subpanel-title"><i class="fa-solid fa-microscope text-accent"></i> Key Linguistic Diagnostics:</h5>
+                <div class="fn-signals-list" id="fnSignalsList">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Flagged Cues Heatmap -->
+              <div class="xai-preview-box">
+                <div class="xai-header">
+                  <i class="fa-solid fa-highlighter text-accent"></i>
+                  <span>Linguistic Salience Breakdown (Flagged Indicators):</span>
+                </div>
+                <div class="xai-tokens" id="fnTokenTokens">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding bg-darker">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Get In Touch</span>
+          <h2 class="section-title">Let's Build Something Exceptional</h2>
+          <div class="title-bar"></div>
+          <p class="section-desc">Have a role, AI project, or research collaboration in mind? Feel free to reach out directly.</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Channels Info -->
+          <div class="contact-info-panel glass-panel">
+            <h3 class="contact-info-title">Connect with Sricharan</h3>
+            <p class="contact-info-desc">
+              I am actively open to discussing software engineering roles, machine learning engineering, NLP research, and full-stack projects.
+            </p>
+
+            <div class="contact-items-list">
+              <div class="contact-item">
+                <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <span class="c-label">Email Address</span>
+                  <div class="copy-box">
+                    <span class="c-value" id="emailText">surakantisricharan8@gmail.com</span>
+                    <button class="copy-btn" id="copyEmailBtn" title="Copy Email to Clipboard">
+                      <i class="fa-regular fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="c-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div>
+                  <span class="c-label">LinkedIn Profile</span>
+                  <a href="https://www.linkedin.com/in/sricharan-surakanti-235809393/" target="_blank" rel="noopener noreferrer" class="c-link">
+                    linkedin.com/in/sricharan-surakanti-235809393 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="c-icon"><i class="fa-brands fa-github"></i></div>
+                <div>
+                  <span class="c-label">GitHub Profile</span>
+                  <a href="https://github.com/SurakantiSricharan" target="_blank" rel="noopener noreferrer" class="c-link">
+                    github.com/SurakantiSricharan <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <span class="c-label">Response Time</span>
+                  <span class="c-value">Usually responds within 24 hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Message Form -->
+          <div class="contact-form-panel glass-panel">
+            <h3 class="contact-form-title">Send a Direct Message</h3>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="senderName">Your Name</label>
+                <input type="text" id="senderName" name="name" required placeholder="e.g. Alex Johnson" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="senderEmail">Your Email</label>
+                <input type="email" id="senderEmail" name="email" required placeholder="alex@example.com" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="senderSubject">Subject</label>
+                <input type="text" id="senderSubject" name="subject" required placeholder="Role Opportunity / Collaboration" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="senderMessage">Message</label>
+                <textarea id="senderMessage" name="message" rows="5" required placeholder="Describe your project, team, or opportunity..." class="form-input"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitFormBtn">
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+              <div id="formStatus" class="form-status-msg" style="display:none;"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <a href="#hero" class="footer-brand">
+          <span class="logo-bracket">&lt;</span>Sricharan <span class="logo-accent">Surakanti</span><span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-copy">
+          Designed and engineered by Sricharan Surakanti. Built with semantic HTML5, custom CSS3, and dynamic JavaScript.
+        </p>
+      </div>
+
+      <div class="footer-center">
+        <ul class="footer-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#demo">Live Lab</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-social-icons">
+          <a href="https://github.com/SurakantiSricharan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sricharan-surakanti-235809393/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:surakantisricharan8@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+        <p class="copyright-text">&copy; <span id="currentYear"></span> Sricharan Surakanti. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Float Button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top of page">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
