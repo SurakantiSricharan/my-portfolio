@@ -278,6 +278,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Direct URL Hash Routing for Project Live Demos
+  function handleDirectLabHash() {
+    const hash = (window.location.hash || '').toLowerCase();
+    if (hash.includes('fakenews') || hash.includes('fake-news')) {
+      switchLabTab('fakenews');
+      const sec = document.getElementById('demo');
+      if (sec) setTimeout(() => sec.scrollIntoView({ behavior: 'smooth' }), 100);
+    } else if (hash.includes('keywords') || hash.includes('keyword')) {
+      switchLabTab('keywords');
+      const sec = document.getElementById('demo');
+      if (sec) setTimeout(() => sec.scrollIntoView({ behavior: 'smooth' }), 100);
+    } else if (hash.includes('hybridsense') || hash.includes('sentiment')) {
+      switchLabTab('hybridsense');
+      const sec = document.getElementById('demo');
+      if (sec) setTimeout(() => sec.scrollIntoView({ behavior: 'smooth' }), 100);
+    }
+  }
+  handleDirectLabHash();
+  window.addEventListener('hashchange', handleDirectLabHash);
+
   // --- MODEL 1: HYBRIDSENSE-X AMBIVALENCE SIMULATOR ---
   const demoTextInput = document.getElementById('demoTextInput');
   const runAnalysisBtn = document.getElementById('runAnalysisBtn');
