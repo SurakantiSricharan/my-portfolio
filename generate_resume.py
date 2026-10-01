@@ -53,8 +53,8 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'ResumeName',
         parent=styles['Normal'],
         fontName='Calibri-Bold',
-        fontSize=18.5,
-        leading=22,
+        fontSize=19,
+        leading=23,
         alignment=TA_CENTER,
         textColor=pure_black
     )
@@ -63,8 +63,8 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'ResumeContact',
         parent=styles['Normal'],
         fontName='Calibri',
-        fontSize=8.5,
-        leading=11.5,
+        fontSize=8.8,
+        leading=12.2,
         alignment=TA_CENTER,
         textColor=secondary_text
     )
@@ -73,8 +73,8 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'SectionHeading',
         parent=styles['Normal'],
         fontName='Calibri-Bold',
-        fontSize=10,
-        leading=12.5,
+        fontSize=10.2,
+        leading=13,
         textColor=pure_black,
         spaceBefore=0,
         spaceAfter=0
@@ -84,8 +84,8 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'SummaryText',
         parent=styles['Normal'],
         fontName='Calibri',
-        fontSize=8.5,
-        leading=11.5,
+        fontSize=8.9,
+        leading=12.6,
         alignment=TA_LEFT,
         textColor=primary_text
     )
@@ -94,8 +94,8 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'ItemTitleLeft',
         parent=styles['Normal'],
         fontName='Calibri-Bold',
-        fontSize=9,
-        leading=11.5,
+        fontSize=9.1,
+        leading=12.6,
         textColor=pure_black
     )
 
@@ -103,8 +103,8 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'ItemTitleRight',
         parent=styles['Normal'],
         fontName='Calibri',
-        fontSize=8.5,
-        leading=11.5,
+        fontSize=8.8,
+        leading=12.2,
         alignment=TA_RIGHT,
         textColor=secondary_text
     )
@@ -113,8 +113,8 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'ItemSubtitleRight',
         parent=styles['Normal'],
         fontName='Calibri',
-        fontSize=8.5,
-        leading=11.5,
+        fontSize=8.8,
+        leading=12.2,
         alignment=TA_RIGHT,
         textColor=secondary_text
     )
@@ -123,24 +123,25 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'BulletStyle',
         parent=styles['Normal'],
         fontName='Calibri',
-        fontSize=8.5,
-        leading=11.5,
+        fontSize=8.9,
+        leading=12.6,
         alignment=TA_LEFT,
         textColor=primary_text,
         leftIndent=14,
         bulletIndent=4,
-        spaceBefore=0,
-        spaceAfter=0.5
+        spaceBefore=0.5,
+        spaceAfter=1.8
     )
 
     skill_line_style = ParagraphStyle(
         'SkillLine',
         parent=styles['Normal'],
         fontName='Calibri',
-        fontSize=8.5,
-        leading=11.8,
+        fontSize=8.9,
+        leading=13.2,
         alignment=TA_LEFT,
-        textColor=primary_text
+        textColor=primary_text,
+        spaceAfter=2.0
     )
 
     story = []
@@ -163,11 +164,11 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     story.append(Spacer(1, 1))
     story.append(Paragraph(contact_line2, contact_style))
     story.append(Spacer(1, 3))
-    story.append(HRFlowable(width="100%", thickness=1, color=rule_color, spaceBefore=2, spaceAfter=4))
+    story.append(HRFlowable(width="100%", thickness=1, color=rule_color, spaceBefore=2, spaceAfter=4.5))
 
     def add_section_header(title):
         story.append(Paragraph(title.upper(), section_heading))
-        story.append(HRFlowable(width="100%", thickness=0.8, color=rule_color, spaceBefore=2, spaceAfter=4))
+        story.append(HRFlowable(width="100%", thickness=0.8, color=rule_color, spaceBefore=2.5, spaceAfter=4.5))
 
     # 2. Professional Summary
     add_section_header("Professional Summary")
@@ -178,7 +179,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         "into production-ready microservices, achieving up to 96.2% classification accuracy and reducing service response latency."
     )
     story.append(Paragraph(summary_p, summary_style))
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 6.5))
 
     # 3. Education (SWAPPED UP)
     add_section_header("Education")
@@ -199,7 +200,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         ('TOPPADDING', (0,0), (-1,-1), 1),
     ]))
     story.append(t_edu)
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 6.5))
 
     # 4. Work Experience
     add_section_header("Professional Experience")
@@ -229,7 +230,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     for b in bullets_exp1:
         story.append(Paragraph(b, bullet_style, bulletText='•'))
     
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 4.5))
 
     # EduSkills Foundation
     exp2_row = [
@@ -256,7 +257,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     for b in bullets_exp2:
         story.append(Paragraph(b, bullet_style, bulletText='•'))
 
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 6.5))
 
     # 5. Key Technical Projects
     add_section_header("Key Technical Projects")
@@ -290,7 +291,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     for b in bullets_p1:
         story.append(Paragraph(b, bullet_style, bulletText='•'))
 
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 4.5))
 
     # Project 2: HybridSense
     proj2_title = (
@@ -320,7 +321,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     for b in bullets_p2:
         story.append(Paragraph(b, bullet_style, bulletText='•'))
 
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 4.5))
 
     # Project 3: Automatic Keyword Extraction
     proj3_title = (
@@ -350,7 +351,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     for b in bullets_p3:
         story.append(Paragraph(b, bullet_style, bulletText='•'))
 
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 6.5))
 
     # 6. Technical Skills (SWAPPED DOWN)
     add_section_header("Technical Skills")
@@ -441,10 +442,10 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
 
     def add_docx_heading(title):
         p = doc.add_paragraph()
-        p.paragraph_format.space_before = Pt(5)
-        p.paragraph_format.space_after = Pt(2)
+        p.paragraph_format.space_before = Pt(7)
+        p.paragraph_format.space_after = Pt(2.5)
         run = p.add_run(title.upper())
-        set_run_font(run, "Calibri", 10, bold=True, color_rgb=(0, 0, 0))
+        set_run_font(run, "Calibri", 10.2, bold=True, color_rgb=(0, 0, 0))
         pPr = p._p.get_or_add_pPr()
         pBdr = parse_xml(f'<w:pBdr {nsdecls("w")}><w:bottom w:val="single" w:sz="6" w:space="1" w:color="000000"/></w:pBdr>')
         pPr.append(pBdr)
@@ -453,14 +454,14 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     add_docx_heading("Professional Summary")
     p_sum = doc.add_paragraph()
     p_sum.paragraph_format.space_before = Pt(2)
-    p_sum.paragraph_format.space_after = Pt(4)
+    p_sum.paragraph_format.space_after = Pt(4.5)
     r_sum = p_sum.add_run(
         "Results-driven AI & NLP Engineer with hands-on experience developing and deploying end-to-end Deep Learning "
         "architectures, Explainable AI (XAI) frameworks, and intelligent automation systems. Proficient in PyTorch, TensorFlow, "
         "FastAPI, and NLP pipelines (BiLSTM, 1D-CNN, TF-IDF). Demonstrated track record of translating machine learning research "
         "into production-ready microservices, achieving up to 96.2% classification accuracy and reducing service response latency."
     )
-    set_run_font(r_sum, "Calibri", 8.5, color_rgb=(17, 24, 39))
+    set_run_font(r_sum, "Calibri", 9, color_rgb=(17, 24, 39))
 
     # 2. Education (SWAPPED UP)
     add_docx_heading("Education")
@@ -477,18 +478,18 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         c1.paragraph_format.space_before = Pt(1)
         c1.paragraph_format.space_after = Pt(1)
         r_d = c1.add_run(deg + "\n")
-        set_run_font(r_d, "Calibri", 8.5, bold=True, color_rgb=(0, 0, 0))
+        set_run_font(r_d, "Calibri", 9, bold=True, color_rgb=(0, 0, 0))
         r_i = c1.add_run(inst)
-        set_run_font(r_i, "Calibri", 8.5, color_rgb=(55, 65, 81))
+        set_run_font(r_i, "Calibri", 8.8, color_rgb=(55, 65, 81))
 
         c2 = t_e.cell(0, 1).paragraphs[0]
         c2.alignment = WD_ALIGN_PARAGRAPH.RIGHT
         c2.paragraph_format.space_before = Pt(1)
         c2.paragraph_format.space_after = Pt(1)
         r_y = c2.add_run(yr + "\n")
-        set_run_font(r_y, "Calibri", 8.5, bold=True, color_rgb=(0, 0, 0))
+        set_run_font(r_y, "Calibri", 8.8, bold=True, color_rgb=(0, 0, 0))
         r_sc = c2.add_run(score)
-        set_run_font(r_sc, "Calibri", 8.5, color_rgb=(55, 65, 81))
+        set_run_font(r_sc, "Calibri", 8.8, color_rgb=(55, 65, 81))
 
     # 3. Professional Experience
     add_docx_heading("Professional Experience")
@@ -502,14 +503,14 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     c1.paragraph_format.space_before = Pt(2)
     c1.paragraph_format.space_after = Pt(1)
     r_j1 = c1.add_run("AI Engineer  |  Laventra Technologies LLP")
-    set_run_font(r_j1, "Calibri", 9, bold=True, color_rgb=(0, 0, 0))
+    set_run_font(r_j1, "Calibri", 9.1, bold=True, color_rgb=(0, 0, 0))
     
     c2 = table_exp1.cell(0, 1).paragraphs[0]
     c2.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     c2.paragraph_format.space_before = Pt(2)
     c2.paragraph_format.space_after = Pt(1)
     r_d1 = c2.add_run("March 2026 – October 2026  |  Hyderabad, India")
-    set_run_font(r_d1, "Calibri", 8.5, color_rgb=(55, 65, 81))
+    set_run_font(r_d1, "Calibri", 8.8, color_rgb=(55, 65, 81))
 
     bullets_exp1 = [
         "Engineered core components of Render Reply, an AI-driven automation platform streamlining response generation and boosting customer engagement by 35%.",
@@ -519,9 +520,9 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     for b in bullets_exp1:
         p_b = doc.add_paragraph(style='List Bullet')
         p_b.paragraph_format.space_before = Pt(0)
-        p_b.paragraph_format.space_after = Pt(1)
+        p_b.paragraph_format.space_after = Pt(1.8)
         r = p_b.add_run(b)
-        set_run_font(r, "Calibri", 8.5, color_rgb=(17, 24, 39))
+        set_run_font(r, "Calibri", 8.9, color_rgb=(17, 24, 39))
 
     # EduSkills
     table_exp2 = doc.add_table(rows=1, cols=2)
@@ -532,14 +533,14 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     c1.paragraph_format.space_before = Pt(2)
     c1.paragraph_format.space_after = Pt(1)
     r_j2 = c1.add_run("AI Virtual Intern  |  EduSkills Foundation")
-    set_run_font(r_j2, "Calibri", 9, bold=True, color_rgb=(0, 0, 0))
+    set_run_font(r_j2, "Calibri", 9.1, bold=True, color_rgb=(0, 0, 0))
 
     c2 = table_exp2.cell(0, 1).paragraphs[0]
     c2.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     c2.paragraph_format.space_before = Pt(2)
     c2.paragraph_format.space_after = Pt(1)
     r_d2 = c2.add_run("January 2026 – March 2026  |  Remote")
-    set_run_font(r_d2, "Calibri", 8.5, color_rgb=(55, 65, 81))
+    set_run_font(r_d2, "Calibri", 8.8, color_rgb=(55, 65, 81))
 
     bullets_exp2 = [
         "Built and evaluated supervised and unsupervised machine learning models using Scikit-Learn, Pandas, and NumPy for predictive analytics across enterprise datasets.",
@@ -549,9 +550,9 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     for b in bullets_exp2:
         p_b = doc.add_paragraph(style='List Bullet')
         p_b.paragraph_format.space_before = Pt(0)
-        p_b.paragraph_format.space_after = Pt(1)
+        p_b.paragraph_format.space_after = Pt(1.8)
         r = p_b.add_run(b)
-        set_run_font(r, "Calibri", 8.5, color_rgb=(17, 24, 39))
+        set_run_font(r, "Calibri", 8.9, color_rgb=(17, 24, 39))
 
     # 4. Key Projects
     add_docx_heading("Key Technical Projects")
@@ -599,29 +600,29 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         c1.paragraph_format.space_before = Pt(2)
         c1.paragraph_format.space_after = Pt(1)
         r_t = c1.add_run(p_title + "  ")
-        set_run_font(r_t, "Calibri", 9, bold=True, color_rgb=(0, 0, 0))
+        set_run_font(r_t, "Calibri", 9.1, bold=True, color_rgb=(0, 0, 0))
         r_b1 = c1.add_run("[")
-        set_run_font(r_b1, "Calibri", 8.5, color_rgb=(10, 102, 194))
+        set_run_font(r_b1, "Calibri", 8.8, color_rgb=(10, 102, 194))
         add_hyperlink(c1, code_url, "Source Code")
         r_b2 = c1.add_run("]  [")
-        set_run_font(r_b2, "Calibri", 8.5, color_rgb=(10, 102, 194))
+        set_run_font(r_b2, "Calibri", 8.8, color_rgb=(10, 102, 194))
         add_hyperlink(c1, demo_url, "Live Demo")
         r_b3 = c1.add_run("]")
-        set_run_font(r_b3, "Calibri", 8.5, color_rgb=(10, 102, 194))
+        set_run_font(r_b3, "Calibri", 8.8, color_rgb=(10, 102, 194))
 
         c2 = t_p.cell(0, 1).paragraphs[0]
         c2.alignment = WD_ALIGN_PARAGRAPH.RIGHT
         c2.paragraph_format.space_before = Pt(2)
         c2.paragraph_format.space_after = Pt(1)
         r_s = c2.add_run(tech_stack)
-        set_run_font(r_s, "Calibri", 8.5, color_rgb=(55, 65, 81))
+        set_run_font(r_s, "Calibri", 8.8, color_rgb=(55, 65, 81))
 
         for b in bullets:
             p_b = doc.add_paragraph(style='List Bullet')
             p_b.paragraph_format.space_before = Pt(0)
-            p_b.paragraph_format.space_after = Pt(1)
+            p_b.paragraph_format.space_after = Pt(1.8)
             r = p_b.add_run(b)
-            set_run_font(r, "Calibri", 8.5, color_rgb=(17, 24, 39))
+            set_run_font(r, "Calibri", 8.9, color_rgb=(17, 24, 39))
 
     # 5. Technical Skills (SWAPPED DOWN)
     add_docx_heading("Technical Skills")
@@ -634,11 +635,11 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     for cat, items in skills:
         p_sk = doc.add_paragraph()
         p_sk.paragraph_format.space_before = Pt(0)
-        p_sk.paragraph_format.space_after = Pt(1)
+        p_sk.paragraph_format.space_after = Pt(2)
         r_cat = p_sk.add_run(cat)
-        set_run_font(r_cat, "Calibri", 8.5, bold=True, color_rgb=(0, 0, 0))
+        set_run_font(r_cat, "Calibri", 8.9, bold=True, color_rgb=(0, 0, 0))
         r_it = p_sk.add_run(items)
-        set_run_font(r_it, "Calibri", 8.5, color_rgb=(17, 24, 39))
+        set_run_font(r_it, "Calibri", 8.9, color_rgb=(17, 24, 39))
 
     doc.save(filename)
     print(f"Successfully generated {filename}")
