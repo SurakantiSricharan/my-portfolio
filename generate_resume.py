@@ -38,11 +38,11 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     styles = getSampleStyleSheet()
 
     # Colors
-    black_color = colors.HexColor("#000000")
+    pure_black = colors.HexColor("#000000")
     primary_text = colors.HexColor("#111827")
     secondary_text = colors.HexColor("#374151")
     link_blue = colors.HexColor("#0a66c2")        # Professional corporate link blue
-    rule_color = colors.HexColor("#111827")       # Solid black section divider
+    rule_color = colors.HexColor("#000000")       # Dark black section divider
 
     name_style = ParagraphStyle(
         'ResumeName',
@@ -51,7 +51,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         fontSize=18.5,
         leading=22,
         alignment=TA_CENTER,
-        textColor=black_color
+        textColor=pure_black
     )
 
     contact_style = ParagraphStyle(
@@ -68,9 +68,9 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         'SectionHeading',
         parent=styles['Normal'],
         fontName='Calibri-Bold',
-        fontSize=9.5,
-        leading=12,
-        textColor=black_color,
+        fontSize=10,
+        leading=12.5,
+        textColor=pure_black,
         spaceBefore=0,
         spaceAfter=0
     )
@@ -91,7 +91,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         fontName='Calibri-Bold',
         fontSize=9,
         leading=11.5,
-        textColor=black_color
+        textColor=pure_black
     )
 
     item_title_right = ParagraphStyle(
@@ -114,7 +114,6 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         textColor=secondary_text
     )
 
-    # Bullet style with mathematical alignment: bullet at 4pt, text block starting precisely at 14pt
     bullet_style = ParagraphStyle(
         'BulletStyle',
         parent=styles['Normal'],
@@ -176,16 +175,35 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     story.append(Paragraph(summary_p, summary_style))
     story.append(Spacer(1, 4))
 
-    # 3. Technical Skills
-    add_section_header("Technical Skills")
-    skills = [
-        "<b>Languages & Core:</b> Python, Java, C/C++, SQL, Git, GitHub, RESTful APIs",
-        "<b>Machine Learning & DL:</b> PyTorch, TensorFlow, Keras, Scikit-Learn, BiLSTM, 1D-CNN, Ensembles, Predictive Analytics",
-        "<b>NLP & Text Forensics:</b> NLTK, TF-IDF, Tokenization, Lemmatization, Sentiment Analysis, Text Mining, Keyword Extraction",
-        "<b>Explainable AI & Tools:</b> XAI (Token Attention, Interpretability), FastAPI, Flask, Pandas, NumPy, Data Preprocessing"
+    # 3. Education (SWAPPED UP)
+    add_section_header("Education")
+
+    edu_data = [
+        [
+            Paragraph("<b>Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)</b><br/>"
+                      "Malla Reddy University &nbsp;|&nbsp; Hyderabad, Telangana", summary_style),
+            Paragraph("<b>2027</b><br/>CGPA: 8.06 / 10 (till 3-2)", item_subtitle_right)
+        ],
+        [
+            Paragraph("<b>Intermediate (MPC - Mathematics, Physics, Chemistry)</b><br/>"
+                      "Sri Chaitanya Junior College &nbsp;|&nbsp; Hyderabad, Telangana", summary_style),
+            Paragraph("<b>2023</b><br/>Score: 91.9%", item_subtitle_right)
+        ],
+        [
+            Paragraph("<b>Secondary School Certificate (SSC - 10th Class)</b><br/>"
+                      "Chaitanya School &nbsp;|&nbsp; Jagtial, Telangana", summary_style),
+            Paragraph("<b>2021</b><br/>GPA: 9.8 / 10", item_subtitle_right)
+        ]
     ]
-    for s in skills:
-        story.append(Paragraph(s, skill_line_style))
+    t_edu = Table(edu_data, colWidths=[390, 158])
+    t_edu.setStyle(TableStyle([
+        ('VALIGN', (0,0), (-1,-1), 'TOP'),
+        ('LEFTPADDING', (0,0), (-1,-1), 0),
+        ('RIGHTPADDING', (0,0), (-1,-1), 0),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2),
+        ('TOPPADDING', (0,0), (-1,-1), 1),
+    ]))
+    story.append(t_edu)
     story.append(Spacer(1, 4))
 
     # 4. Work Experience
@@ -339,39 +357,20 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
 
     story.append(Spacer(1, 4))
 
-    # 6. Education
-    add_section_header("Education")
-
-    edu_data = [
-        [
-            Paragraph("<b>Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)</b><br/>"
-                      "Malla Reddy University &nbsp;|&nbsp; Hyderabad, Telangana", summary_style),
-            Paragraph("2027<br/>CGPA: 8.06 / 10 (till 3-2)", item_subtitle_right)
-        ],
-        [
-            Paragraph("<b>Intermediate (MPC - Mathematics, Physics, Chemistry)</b><br/>"
-                      "Sri Chaitanya Junior College &nbsp;|&nbsp; Hyderabad, Telangana", summary_style),
-            Paragraph("2023<br/>Score: 91.9%", item_subtitle_right)
-        ],
-        [
-            Paragraph("<b>Secondary School Certificate (SSC - 10th Class)</b><br/>"
-                      "Chaitanya School &nbsp;|&nbsp; Jagtial, Telangana", summary_style),
-            Paragraph("2021<br/>GPA: 9.8 / 10", item_subtitle_right)
-        ]
+    # 6. Technical Skills (SWAPPED DOWN)
+    add_section_header("Technical Skills")
+    skills = [
+        "<b>Languages & Core:</b> Python, Java, C/C++, SQL, Git, GitHub, RESTful APIs",
+        "<b>Machine Learning & DL:</b> PyTorch, TensorFlow, Keras, Scikit-Learn, BiLSTM, 1D-CNN, Ensembles, Predictive Analytics",
+        "<b>NLP & Text Forensics:</b> NLTK, TF-IDF, Tokenization, Lemmatization, Sentiment Analysis, Text Mining, Keyword Extraction",
+        "<b>Explainable AI & Tools:</b> XAI (Token Attention, Interpretability), FastAPI, Flask, Pandas, NumPy, Data Preprocessing"
     ]
-    t_edu = Table(edu_data, colWidths=[390, 158])
-    t_edu.setStyle(TableStyle([
-        ('VALIGN', (0,0), (-1,-1), 'TOP'),
-        ('LEFTPADDING', (0,0), (-1,-1), 0),
-        ('RIGHTPADDING', (0,0), (-1,-1), 0),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 2),
-        ('TOPPADDING', (0,0), (-1,-1), 1),
-    ]))
-    story.append(t_edu)
+    for s in skills:
+        story.append(Paragraph(s, skill_line_style))
 
     doc.build(story)
 
-    # Post-process PDF metadata to appear as created by Microsoft Word (not AI/ReportLab)
+    # Post-process PDF metadata to appear as created by Microsoft Word
     reader = pypdf.PdfReader(filename)
     writer = pypdf.PdfWriter()
     for page in reader.pages:
@@ -450,9 +449,9 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         p.paragraph_format.space_before = Pt(5)
         p.paragraph_format.space_after = Pt(2)
         run = p.add_run(title.upper())
-        set_run_font(run, "Calibri", 9.5, bold=True, color_rgb=(0, 0, 0))
+        set_run_font(run, "Calibri", 10, bold=True, color_rgb=(0, 0, 0))
         pPr = p._p.get_or_add_pPr()
-        pBdr = parse_xml(f'<w:pBdr {nsdecls("w")}><w:bottom w:val="single" w:sz="6" w:space="1" w:color="111827"/></w:pBdr>')
+        pBdr = parse_xml(f'<w:pBdr {nsdecls("w")}><w:bottom w:val="single" w:sz="6" w:space="1" w:color="000000"/></w:pBdr>')
         pPr.append(pBdr)
 
     # 1. Summary
@@ -468,22 +467,35 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     )
     set_run_font(r_sum, "Calibri", 8.5, color_rgb=(17, 24, 39))
 
-    # 2. Technical Skills
-    add_docx_heading("Technical Skills")
-    skills = [
-        ("Languages & Core:", " Python, Java, C/C++, SQL, Git, GitHub, RESTful APIs"),
-        ("Machine Learning & DL:", " PyTorch, TensorFlow, Keras, Scikit-Learn, BiLSTM, 1D-CNN, Ensembles, Predictive Analytics"),
-        ("NLP & Text Forensics:", " NLTK, TF-IDF, Tokenization, Lemmatization, Sentiment Analysis, Text Mining, Keyword Extraction"),
-        ("Explainable AI & Tools:", " XAI (Token Attention, Interpretability), FastAPI, Flask, Pandas, NumPy, Data Preprocessing")
+    # 2. Education (SWAPPED UP)
+    add_docx_heading("Education")
+    
+    edu_list = [
+        ("Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)", "Malla Reddy University  |  Hyderabad, Telangana", "2027", "CGPA: 8.06 / 10 (till 3-2)"),
+        ("Intermediate (MPC - Mathematics, Physics, Chemistry)", "Sri Chaitanya Junior College  |  Hyderabad, Telangana", "2023", "Score: 91.9%"),
+        ("Secondary School Certificate (SSC - 10th Class)", "Chaitanya School  |  Jagtial, Telangana", "2021", "GPA: 9.8 / 10")
     ]
-    for cat, items in skills:
-        p_sk = doc.add_paragraph()
-        p_sk.paragraph_format.space_before = Pt(0)
-        p_sk.paragraph_format.space_after = Pt(1)
-        r_cat = p_sk.add_run(cat)
-        set_run_font(r_cat, "Calibri", 8.5, bold=True, color_rgb=(0, 0, 0))
-        r_it = p_sk.add_run(items)
-        set_run_font(r_it, "Calibri", 8.5, color_rgb=(17, 24, 39))
+    for deg, inst, yr, score in edu_list:
+        t_e = doc.add_table(rows=1, cols=2)
+        t_e.alignment = WD_TABLE_ALIGNMENT.CENTER
+        t_e.columns[0].width = Inches(5.2)
+        t_e.columns[1].width = Inches(2.3)
+        c1 = t_e.cell(0, 0).paragraphs[0]
+        c1.paragraph_format.space_before = Pt(1)
+        c1.paragraph_format.space_after = Pt(1)
+        r_d = c1.add_run(deg + "\n")
+        set_run_font(r_d, "Calibri", 8.5, bold=True, color_rgb=(17, 24, 39))
+        r_i = c1.add_run(inst)
+        set_run_font(r_i, "Calibri", 8.5, color_rgb=(55, 65, 81))
+
+        c2 = t_e.cell(0, 1).paragraphs[0]
+        c2.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        c2.paragraph_format.space_before = Pt(1)
+        c2.paragraph_format.space_after = Pt(1)
+        r_y = c2.add_run(yr + "\n")
+        set_run_font(r_y, "Calibri", 8.5, bold=True, color_rgb=(0, 0, 0))
+        r_sc = c2.add_run(score)
+        set_run_font(r_sc, "Calibri", 8.5, color_rgb=(55, 65, 81))
 
     # 3. Professional Experience
     add_docx_heading("Professional Experience")
@@ -618,35 +630,22 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
             r = p_b.add_run(b)
             set_run_font(r, "Calibri", 8.5, color_rgb=(17, 24, 39))
 
-    # 5. Education
-    add_docx_heading("Education")
-    
-    edu_list = [
-        ("Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)", "Malla Reddy University  |  Hyderabad, Telangana", "2027", "CGPA: 8.06 / 10 (till 3-2)"),
-        ("Intermediate (MPC - Mathematics, Physics, Chemistry)", "Sri Chaitanya Junior College  |  Hyderabad, Telangana", "2023", "Score: 91.9%"),
-        ("Secondary School Certificate (SSC - 10th Class)", "Chaitanya School  |  Jagtial, Telangana", "2021", "GPA: 9.8 / 10")
+    # 5. Technical Skills (SWAPPED DOWN)
+    add_docx_heading("Technical Skills")
+    skills = [
+        ("Languages & Core:", " Python, Java, C/C++, SQL, Git, GitHub, RESTful APIs"),
+        ("Machine Learning & DL:", " PyTorch, TensorFlow, Keras, Scikit-Learn, BiLSTM, 1D-CNN, Ensembles, Predictive Analytics"),
+        ("NLP & Text Forensics:", " NLTK, TF-IDF, Tokenization, Lemmatization, Sentiment Analysis, Text Mining, Keyword Extraction"),
+        ("Explainable AI & Tools:", " XAI (Token Attention, Interpretability), FastAPI, Flask, Pandas, NumPy, Data Preprocessing")
     ]
-    for deg, inst, yr, score in edu_list:
-        t_e = doc.add_table(rows=1, cols=2)
-        t_e.alignment = WD_TABLE_ALIGNMENT.CENTER
-        t_e.columns[0].width = Inches(5.2)
-        t_e.columns[1].width = Inches(2.3)
-        c1 = t_e.cell(0, 0).paragraphs[0]
-        c1.paragraph_format.space_before = Pt(1)
-        c1.paragraph_format.space_after = Pt(1)
-        r_d = c1.add_run(deg + "\n")
-        set_run_font(r_d, "Calibri", 8.5, bold=True, color_rgb=(17, 24, 39))
-        r_i = c1.add_run(inst)
-        set_run_font(r_i, "Calibri", 8.5, color_rgb=(55, 65, 81))
-
-        c2 = t_e.cell(0, 1).paragraphs[0]
-        c2.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        c2.paragraph_format.space_before = Pt(1)
-        c2.paragraph_format.space_after = Pt(1)
-        r_y = c2.add_run(yr + "\n")
-        set_run_font(r_y, "Calibri", 8.5, color_rgb=(55, 65, 81))
-        r_sc = c2.add_run(score)
-        set_run_font(r_sc, "Calibri", 8.5, color_rgb=(55, 65, 81))
+    for cat, items in skills:
+        p_sk = doc.add_paragraph()
+        p_sk.paragraph_format.space_before = Pt(0)
+        p_sk.paragraph_format.space_after = Pt(1)
+        r_cat = p_sk.add_run(cat)
+        set_run_font(r_cat, "Calibri", 8.5, bold=True, color_rgb=(0, 0, 0))
+        r_it = p_sk.add_run(items)
+        set_run_font(r_it, "Calibri", 8.5, color_rgb=(17, 24, 39))
 
     doc.save(filename)
     print(f"Successfully generated {filename}")
