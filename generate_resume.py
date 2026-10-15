@@ -150,19 +150,15 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     story.append(Paragraph("SRICHARAN SURAKANTI", name_style))
     story.append(Spacer(1, 3))
     
-    contact_line1 = (
+    contact_line = (
         "Hyderabad, Telangana, India &nbsp;&bull;&nbsp; "
         "+91 7032511447 &nbsp;&bull;&nbsp; "
-        '<a href="mailto:surakantisricharan8@gmail.com" color="#0a66c2"><u>surakantisricharan8@gmail.com</u></a>'
+        '<a href="mailto:surakantisricharan8@gmail.com" color="#0a66c2"><u>surakantisricharan8@gmail.com</u></a> &nbsp;&bull;&nbsp; '
+        '<a href="https://surakantisricharan.github.io/my-portfolio/" color="#0a66c2"><u>Portfolio</u></a> &nbsp;&bull;&nbsp; '
+        '<a href="https://github.com/SurakantiSricharan" color="#0a66c2"><u>GitHub</u></a> &nbsp;&bull;&nbsp; '
+        '<a href="https://linkedin.com/in/sricharan-surakanti-235809393" color="#0a66c2"><u>LinkedIn</u></a>'
     )
-    contact_line2 = (
-        '<a href="https://surakantisricharan.github.io/my-portfolio/" color="#0a66c2"><u>Portfolio: surakantisricharan.github.io/my-portfolio</u></a> &nbsp;&bull;&nbsp; '
-        '<a href="https://linkedin.com/in/sricharan-surakanti-235809393" color="#0a66c2"><u>linkedin.com/in/sricharan-surakanti</u></a> &nbsp;&bull;&nbsp; '
-        '<a href="https://github.com/SurakantiSricharan" color="#0a66c2"><u>github.com/SurakantiSricharan</u></a>'
-    )
-    story.append(Paragraph(contact_line1, contact_style))
-    story.append(Spacer(1, 1))
-    story.append(Paragraph(contact_line2, contact_style))
+    story.append(Paragraph(contact_line, contact_style))
     story.append(Spacer(1, 3))
     story.append(HRFlowable(width="100%", thickness=1, color=rule_color, spaceBefore=2, spaceAfter=4.5))
 
@@ -266,7 +262,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj1_title = (
         '<b>VeritasAI: Fake News Detection Platform</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/Fake-News-Detection" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/fakenews.html" color="#0a66c2"><u>Live Demo</u></a>]'
+        '[<a href="https://surakantisricharan.github.io/my-portfolio/fakenews.html" color="#0a66c2"><u>Live Deployment</u></a>]'
     )
     proj1_row = [
         [
@@ -297,7 +293,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj2_title = (
         '<b>HybridSense: 4-Class Sentiment Analysis (XAI)</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/HybridSense-Sentiment-Analysis" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/hybridsense.html" color="#0a66c2"><u>Live Demo</u></a>]'
+        '[<a href="https://surakantisricharan.github.io/my-portfolio/hybridsense.html" color="#0a66c2"><u>Live Deployment</u></a>]'
     )
     proj2_row = [
         [
@@ -327,7 +323,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj3_title = (
         '<b>Automatic Keyword Extraction using NLP</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/Automatic-keyword-extraction" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/keywords.html" color="#0a66c2"><u>Live Demo</u></a>]'
+        '[<a href="https://surakantisricharan.github.io/my-portfolio/keywords.html" color="#0a66c2"><u>Live Deployment</u></a>]'
     )
     proj3_row = [
         [
@@ -418,27 +414,23 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     run_name = p_name.add_run("SRICHARAN SURAKANTI")
     set_run_font(run_name, "Calibri", 18.5, bold=True, color_rgb=(0, 0, 0))
 
-    # Header Contact 1
-    p_c1 = doc.add_paragraph()
-    p_c1.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_c1.paragraph_format.space_before = Pt(0)
-    p_c1.paragraph_format.space_after = Pt(1)
-    r1 = p_c1.add_run("Hyderabad, Telangana, India  •  +91 7032511447  •  ")
+    # Header Contact
+    p_c = doc.add_paragraph()
+    p_c.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_c.paragraph_format.space_before = Pt(0)
+    p_c.paragraph_format.space_after = Pt(4)
+    r1 = p_c.add_run("Hyderabad, Telangana, India  •  +91 7032511447  •  ")
     set_run_font(r1, "Calibri", 8.5, color_rgb=(55, 65, 81))
-    add_hyperlink(p_c1, "mailto:surakantisricharan8@gmail.com", "surakantisricharan8@gmail.com")
-
-    # Header Contact 2
-    p_c2 = doc.add_paragraph()
-    p_c2.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_c2.paragraph_format.space_before = Pt(0)
-    p_c2.paragraph_format.space_after = Pt(4)
-    add_hyperlink(p_c2, "https://surakantisricharan.github.io/my-portfolio/", "Portfolio: surakantisricharan.github.io/my-portfolio")
-    r_sep1 = p_c2.add_run("  •  ")
+    add_hyperlink(p_c, "mailto:surakantisricharan8@gmail.com", "surakantisricharan8@gmail.com")
+    r_sep0 = p_c.add_run("  •  ")
+    set_run_font(r_sep0, "Calibri", 8.5, color_rgb=(55, 65, 81))
+    add_hyperlink(p_c, "https://surakantisricharan.github.io/my-portfolio/", "Portfolio")
+    r_sep1 = p_c.add_run("  •  ")
     set_run_font(r_sep1, "Calibri", 8.5, color_rgb=(55, 65, 81))
-    add_hyperlink(p_c2, "https://linkedin.com/in/sricharan-surakanti-235809393", "linkedin.com/in/sricharan-surakanti")
-    r_sep2 = p_c2.add_run("  •  ")
+    add_hyperlink(p_c, "https://github.com/SurakantiSricharan", "GitHub")
+    r_sep2 = p_c.add_run("  •  ")
     set_run_font(r_sep2, "Calibri", 8.5, color_rgb=(55, 65, 81))
-    add_hyperlink(p_c2, "https://github.com/SurakantiSricharan", "github.com/SurakantiSricharan")
+    add_hyperlink(p_c, "https://linkedin.com/in/sricharan-surakanti-235809393", "LinkedIn")
 
     def add_docx_heading(title):
         p = doc.add_paragraph()
@@ -606,7 +598,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         add_hyperlink(c1, code_url, "Source Code")
         r_b2 = c1.add_run("]  [")
         set_run_font(r_b2, "Calibri", 8.8, color_rgb=(10, 102, 194))
-        add_hyperlink(c1, demo_url, "Live Demo")
+        add_hyperlink(c1, demo_url, "Live Deployment")
         r_b3 = c1.add_run("]")
         set_run_font(r_b3, "Calibri", 8.8, color_rgb=(10, 102, 194))
 
