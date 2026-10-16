@@ -362,11 +362,18 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
 
     doc.build(story)
 
-    # Post-process PDF metadata to appear as created by Microsoft Word
+    # Post-process PDF metadata and set links to open in a new tab/window
     reader = pypdf.PdfReader(filename)
     writer = pypdf.PdfWriter()
     for page in reader.pages:
         writer.add_page(page)
+
+    for page in writer.pages:
+        if "/Annots" in page:
+            for annot in page["/Annots"]:
+                obj = annot.get_object()
+                if "/A" in obj and "/URI" in obj["/A"]:
+                    obj["/A"][pypdf.generic.NameObject("/NewWindow")] = pypdf.generic.BooleanObject(True)
     
     metadata = {
         "/Title": "Sricharan Surakanti - Resume",
@@ -395,7 +402,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     def add_hyperlink(paragraph, url, text, color="0A66C2", underline=True):
         part = paragraph.part
         r_id = part.relate_to(url, docx.opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
-        hyperlink = parse_xml(f'<w:hyperlink {nsdecls("w")} xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:id="{r_id}" />')
+        hyperlink = parse_xml(f'<w:hyperlink {nsdecls("w")} xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:id="{r_id}" w:tgtFrame="_blank" />')
         new_run = parse_xml(f'<w:r {nsdecls("w")}><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:color w:val="{color}"/><w:u w:val="{"single" if underline else "none"}"/></w:rPr><w:t>{text}</w:t></w:r>')
         hyperlink.append(new_run)
         paragraph._p.append(hyperlink)
