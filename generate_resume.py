@@ -184,7 +184,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
         [
             Paragraph('<font color="#000000"><b>Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)</b></font><br/>'
                       'Malla Reddy University &nbsp;|&nbsp; Hyderabad, Telangana', summary_style),
-            Paragraph('<font color="#000000"><b>2027</b></font><br/>CGPA: 8.06 / 10 (till 3-2)', item_subtitle_right)
+            Paragraph('<font color="#000000"><b>Expected May 2027</b></font><br/>CGPA: 8.06 / 10.0', item_subtitle_right)
         ]
     ]
     t_edu = Table(edu_data, colWidths=[390, 158])
@@ -466,7 +466,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
     add_docx_heading("Education")
     
     edu_list = [
-        ("Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)", "Malla Reddy University  |  Hyderabad, Telangana", "2027", "CGPA: 8.06 / 10 (till 3-2)")
+        ("Bachelor of Technology (B.Tech) - Computer Science & Engineering (AI & ML)", "Malla Reddy University  |  Hyderabad, Telangana", "Expected May 2027", "CGPA: 8.06 / 10.0")
     ]
     for deg, inst, yr, score in edu_list:
         t_e = doc.add_table(rows=1, cols=2)
