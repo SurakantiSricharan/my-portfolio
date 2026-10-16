@@ -323,7 +323,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj3_title = (
         '<b>Automatic Keyword Extraction using NLP</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/Automatic-keyword-extraction" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/keywords.html" color="#0a66c2"><u>Live Deployment</u></a>]'
+        '[<a href="https://automatic-keyword-extraction.onrender.com" color="#0a66c2"><u>Live Deployment</u></a>]'
     )
     proj3_row = [
         [
@@ -574,7 +574,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         (
             "Automatic Keyword Extraction using NLP",
             "https://github.com/SurakantiSricharan/Automatic-keyword-extraction",
-            "https://surakantisricharan.github.io/my-portfolio/keywords.html",
+            "https://automatic-keyword-extraction.onrender.com",
             "Python, Scikit-Learn, NLTK, TF-IDF",
             [
                 "Designed an automated machine learning-driven keyword extraction platform using Python, NLTK, and Scikit-Learn to parse and analyze unstructured academic research papers.",
