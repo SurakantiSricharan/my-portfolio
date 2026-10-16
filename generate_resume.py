@@ -293,7 +293,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj2_title = (
         '<b>HybridSense: 4-Class Sentiment Analysis (XAI)</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/HybridSense-Sentiment-Analysis" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/hybridsense.html" color="#0a66c2"><u>Live Deployment</u></a>]'
+        '[<a href="https://hybridsense-sentiment-analysis.onrender.com" color="#0a66c2"><u>Live Deployment</u></a>]'
     )
     proj2_row = [
         [
@@ -564,7 +564,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         (
             "HybridSense: 4-Class Sentiment Analysis (XAI)",
             "https://github.com/SurakantiSricharan/HybridSense-Sentiment-Analysis",
-            "https://surakantisricharan.github.io/my-portfolio/hybridsense.html",
+            "https://hybridsense-sentiment-analysis.onrender.com",
             "Python, TensorFlow, Deep Learning, NLP",
             [
                 "Developed an end-to-end Deep Learning & NLP platform expanding standard 3-class sentiment analysis into a 4-class classification paradigm (Positive, Negative, Neutral, Ambivalent) to resolve clause-level polarity conflicts.",
