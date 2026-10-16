@@ -262,7 +262,7 @@ def build_pdf(filename="Sricharan_Surakanti_Resume.pdf"):
     proj1_title = (
         '<b>VeritasAI: Fake News Detection Platform</b> &nbsp;'
         '[<a href="https://github.com/SurakantiSricharan/Fake-News-Detection" color="#0a66c2"><u>Source Code</u></a>] &nbsp;'
-        '[<a href="https://surakantisricharan.github.io/my-portfolio/fakenews.html" color="#0a66c2"><u>Live Deployment</u></a>]'
+        '[<a href="https://fake-news-detection-b3ow.onrender.com" color="#0a66c2"><u>Live Deployment</u></a>]'
     )
     proj1_row = [
         [
@@ -553,7 +553,7 @@ def build_docx(filename="Sricharan_Surakanti_Resume.docx"):
         (
             "VeritasAI: Fake News Detection Platform",
             "https://github.com/SurakantiSricharan/Fake-News-Detection",
-            "https://surakantisricharan.github.io/my-portfolio/fakenews.html",
+            "https://fake-news-detection-b3ow.onrender.com",
             "Python, BiLSTM, 1D-CNN, FastAPI, XAI",
             [
                 "Architected a production-grade Fake News Intelligence Platform leveraging BiLSTM + 1D-CNN dual ensembles, classifying deceptive content at 96.2% accuracy.",
